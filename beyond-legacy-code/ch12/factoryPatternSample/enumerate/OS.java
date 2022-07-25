@@ -1,6 +1,6 @@
 package enumerate;
 
-public enum PhoneType {
+public enum OS {
     Android,
     iOS,
     Linux

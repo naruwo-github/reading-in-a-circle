@@ -2,10 +2,10 @@ package concreteClass;
 
 import abstractClass.Factory;
 import abstractClass.Phone;
-import enumerate.PhoneType;
+import enumerate.OS;
 
 public class PhoneFactory extends Factory {
-    protected Phone createPhone(String name, PhoneType type) {
+    protected Phone createPhone(String name, OS type) {
         switch (type) {
             case Android:
                 return new AndroidPhone(name);
