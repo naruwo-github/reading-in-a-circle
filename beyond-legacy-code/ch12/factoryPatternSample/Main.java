@@ -1,9 +1,5 @@
-import java.util.*;
 import abstractClass.Factory;
 import abstractClass.Phone;
-import concreteClass.AndroidPhone;
-import concreteClass.iPhone;
-import concreteClass.linuxPhone;
 import concreteClass.PhoneFactory;
 import enumerate.PhoneType;
 
