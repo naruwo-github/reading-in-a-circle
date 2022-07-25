@@ -1,0 +1,8 @@
+{
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "complexity": ["error", 2]
+    }
+}
