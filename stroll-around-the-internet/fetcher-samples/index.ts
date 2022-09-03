@@ -7,7 +7,8 @@ const url = 'http://localhost/'
 
 const params = {
     user: 'user',
-    userId: '100'
+    userId: '100',
+    size: 'large'
 }
 
 console.log(createUrlWithParams(url, params))
