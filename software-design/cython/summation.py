@@ -1,5 +1,3 @@
-import time
-
 def summation(n):
     print("Execute by Python")
     result = 0
