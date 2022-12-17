@@ -1,29 +1,29 @@
 # Docker Misconceptions
 `訳: Dockerに関するよくある勘違い`
 
-本稿は、下記の参考文献を日本語で適当にまとめたものである。
+本稿は、下記文献を日本語で`適当に`まとめたものである。
 - Reference: https://hvops.com/articles/docker-misconceptions/
-    - Dockerの作者による、Dockerの設計でミスったと思っていることが書かれている記事
     - 2017年に更新された内容であり、技術発達により改善された部分もあるがまだ欠陥と言える部分もあるとのこと
 
 ## Narrowly focused advice!
-このDockerに関する議論は、ミッションクリティカルなシステム（主にウェブサービス）のマルチホストセットアップを対象としている。
+この内容は、ミッションクリティカルなシステム（主にウェブサービス）のマルチホストセットアップを対象としている
 
-Dockerを使用できる他の多くのシナリオには、必ずしも当てはまらない。ご留意を。
+Dockerを使用できる他の多くのシナリオには、必ずしも当てはまるわけではない
 
 ## Background on Docker
-Docker辞退の説明はスコープ外だから、下記の記事見てね。
+Docker自体の説明はスコープ外だから、下記を読んでね
 - [What is Docker?](https://www.docker.com/resources/what-container/)
 - [Understanding Docker](https://docs.docker.com/get-started/overview/)
 
 ## Misconceptions
 
 ### Misconception: If I learn Docker then I don't have to learn the other systems stuff!
-`訳: 勘違い①：Dockerさえ学べば他の技術の知識は必須ではない！`
+`訳: Dockerさえ学べば他の技術の知識は必須ではない！`
 
-現状はまだそうは言えない。より多くのシステム専門知識が必要。
+現状はまだそうは言えない。
+より多くのシステム専門知識が必要。
 Dockerは高度な最適化/抽象化手法の一つであると捉えるのが良い。
-非常に強力なツールだがシステムの複雑さを著しく増大させる。
+非常に強力なツールだがシステムの複雑さを増大させる。
 ミッションクリティカルなシステムの本番環境でDockerを使う場合は、安全に使用する方法をすべて理解しているエキスパートが主導するべき。
 
 Dockerに関する記事の多くは、シンプルなユースケースのみを紹介し、マルチホストのプロダクションシステムでDockerを使用する際の複雑さを無視している。
@@ -48,7 +48,7 @@ Dockerに関する記事の多くは、シンプルなユースケースのみ�
 ### Misconception: If I use Docker then I don't need a configuration management (CM) tool!
 `訳: Dockerを使えば、構成管理(CM)ツールは不要！`
 
-Dockerを搭載したサーバをプロビジョニング、デプロイ、管理するには、オーケストレーションツールが絶対に必要。
+Dockerを搭載したサーバをプロビジョニング、デプロイ、管理するには、オーケストレーションツールが絶対に必要
 - 構成管理ツールとは（参考Qiita記事〜）
 - [2022年度最新版構成管理ツール(IaCツール)の比較](https://qiita.com/cocoa-maemae/items/8595246f444b1c08e479)
 
@@ -56,7 +56,8 @@ Dockerを搭載したサーバをプロビジョニング、デプロイ、管�
 `訳: いますぐDocker使うべき！`
 
 Docker移行する前にインフラ面を固めておくべし
-- 安全な最小特権アクセス（キーベースのログイン、ファイアウォール、フェイル2バンなど）
+- 安全な最小特権アクセス（キーベースのログイン、ファイアウォール、fail2banなど）
+    - fail2ban: サーバのログファイルを自動でスキャンし、悪意のあるSSH通信を自動遮断するツール
 - 復元可能な安全なオフサイトデータベースバックアップ
 - 自動化されたシステム設定（Ansible、Puppetなどの使用）
 - 自動デプロイ
