@@ -41,14 +41,15 @@
 - DockerエンジンはCEとEEの二種類ある
 - Docker CE
     - Docker CEにおけるストレージドライバ
-        - Dockerイメージは内部的に階層構造で管理されており、コンテナからDockerイメージを作成する際は、ストレージドライバが階層構造に対して処理を施す
+        - ストレージドライバは、Dockerがイメージやコンテナを管理する際に使用するもの
+            - イメージやコンテナ内のファイルシステムに加えられた変更を差分形式で保持することで、効率良くストレージを利用できるよう設計されている
+            - Dockerイメージは内部的に階層構造で管理されており、コンテナからDockerイメージを作成する際は、ストレージドライバが階層構造に対して処理を施す
         - ref: https://docs.docker.com/storage/storagedriver/select-storage-driver/#supported-backing-filesystems
-    - Docker CEでサポートされているドライバに関する注意事項
-        - 
-- Docker EE
-    - 
-        - 
+- Docker EE(Docker Engine - Enterprise, Docker Enterprise)
+    - エンタープライズ向けのすべての機能を持つDockerサービス
+    - Docker Engine - Enterprise: エンジン、オーケストレーション機能(Kubernetes, Swarm)、ネットワーキング、セキュリティ
+    - Docker Enterprise: Docker Engine - Enterpriseの機能に加えて、Dockerイメージ/ユーザ/コンテナのGUI管理、Dockerイメージのセキュリティスキャンなどなど
 
 ## まとめ
-- 
+- 商用版は社内システムをよく見直し、検討してから選ぼう
 
