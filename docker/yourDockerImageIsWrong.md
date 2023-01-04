@@ -19,7 +19,7 @@ CMD ["/my_app/start.sh"]
 
 いや、違うんだなそれが。
 
-![違う、そうじゃない](https://m.media-amazon.com/images/I/91uO6fqahML._AC_SL1500_.jpg)
+![違う、そうじゃない](https://m.media-amazon.com/images/I/91uO6fqahML._AC_SL1500_.jpg =300x)
 
 出典：Amazon.co.jp
 
@@ -40,7 +40,8 @@ UbuntuのinitシステムであるUpstartは、実際のハードウェアまた
 故に、多くの問題（意図しないシステムの挙動）を引き起こす可能性がある。
 
 ### "What important system services am I missing?"
-- A correct init process
+下記のシステム（プロセスやサービス）を考慮した方がいい。
+- 適切な`initプロセス`の選択
     - initプロセス、PID1は、CMDで実行したもの
         - initプロセスが止まるとコンテナも止まる
     - initプロセスには余分な責任がある
@@ -49,13 +50,13 @@ UbuntuのinitシステムであるUpstartは、実際のハードウェアまた
     - `docker stop`はinitプロセスにSIGTERMを送信し、initプロセスはすべてのサービスを停止することになっている
         - initプロセスがアプリである場合、コンテナ内の他のプロセスではなく、自分自身をシャットダウンすることになる
             - カーネルは、他のプロセスを強制的に終了させ、gracefull shutdownする機会を与えず、潜在的にファイルの破損や古い一時ファイルなどを引き起こす可能性がある
-- syslog
+- `syslog`
     - Unixの標準ロギングサービスで、`/var/log/syslog`へ出力する
     - warningやerrorを取得するために、syslog daemonは稼働が必須
     - 自動起動しないので、意図的に起動させる必要がある
-- cron
+- `cron`
     - cron daemonは自動起動しないので、意図的に起動させる必要がある
-- SSH daemon(sometimes)
+- `SSH daemon(sometimes)`
     - 時折、何かしらの理由でコンテナ内で作業したい場合が発生する
         - 例えば、適切に稼働していないアプリをデバッグしたい場合
             - `docker exec`が使えるが、多くのデメリットがある
