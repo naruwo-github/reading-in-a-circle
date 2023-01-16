@@ -60,8 +60,32 @@
 | /lib | ライブラリ |
 | /dev | デバイスファイル |
 
-- パーティション管理コマンド
-    - 
+- パーティション管理コマンド（※取扱注意
+    - `fdisk`：パーティションの作成、削除、変更、情報表示など
+        - `-l`：デバイスのパーティションテーブルの状態を表示する
+            - Ex. `# fdisk -l /dev/sda`
+```terminal
+ubuntu@lts:~$ sudo fdisk -l /dev/sda
+Disk /dev/sda: 10 GiB, 10737418240 bytes, 20971520 sectors
+Disk model: QEMU HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 749D7C21-A688-49F2-B8BA-495B3A40591F
+
+Device      Start      End  Sectors  Size Type
+/dev/sda1  206848 20971486 20764639  9.9G Linux filesystem
+/dev/sda15   2048   204800   202753   99M EFI System
+
+Partition table entries are not in disk order.
+```
+    - `gdisk`：GPT対応のパーティション操作をする（サブコマンドはfdiskと同じ）
+        - GPT(GUIDパーティションテーブル)：パーティションテーブルの方式の一つで、最大128個までパーティションを作成できる
+        - MBR(マスターブートレコード)：従来方式。扱えるハードディスク容量は2TBまでで、基本パーティションを4個作成できる
+    - `parted`：MBRもGPTにも対応したパーティション操作コマンド
+        - fdisk, gdiskと同様に対話形式でも実行できるが、`-s`を使って一度に処理できる
+    - ※：fdisk, gdiskは書き込み完了後に初めてパーティションテーブルに反映されるが、partedコマンドでは即座に反映される
 - ファイルシステムの作成
     - 
 
