@@ -60,6 +60,8 @@
 | /lib | ライブラリ |
 | /dev | デバイスファイル |
 
+- 参考：[hier - ファイルシステムの説明](https://linuxjm.osdn.jp/html/LDP_man-pages/man7/hier.7.html)
+
 ### パーティション管理コマンド（※取扱注意
 - `fdisk`：パーティションの作成、削除、変更、情報表示など
     - `-l`：デバイスのパーティションテーブルの状態を表示する
@@ -137,13 +139,13 @@ Partition table entries are not in disk order.
                 - スナップショットを使うことで間違ってファイルを消してしまうようなヒューマンエラーに対してリカバリーが効く
                 - 外側のボリュームから見るとサブボリュームはただのディレクトリに見え、そのディレクトリに対して書き込みを行っても問題ない
 
-![https://www.ibm.com/docs/ja/ST3FR7_8.2.1/com.ibm.storwize.v7000.821.doc/svc_mdiskgrp_21iipo.gif]
+<img src="https://www.ibm.com/docs/ja/ST3FR7_8.2.1/com.ibm.storwize.v7000.821.doc/svc_mdiskgrp_21iipo.gif" alt="ストレージ・ブール" width="600px">
 
 画像出典：[IBM ストレージ・プール](https://www.ibm.com/docs/ja/flashsystem-7x00/8.2.x?topic=overview-storage-pools)
 
-
-- `mkswap`コマンド：
-    - 
+- `mkswap`コマンド：パーティション上にスワップ領域を作成する
+    - 通常、スワップ領域として、独立したパーティションを割り当てる
+    - システムには最低一つのスワップ領域が必要
 
 ## ファイルシステムの管理
 - 
