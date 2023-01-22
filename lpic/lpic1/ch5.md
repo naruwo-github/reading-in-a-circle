@@ -66,7 +66,7 @@
 - `fdisk`：パーティションの作成、削除、変更、情報表示など
     - `-l`：デバイスのパーティションテーブルの状態を表示する
         - Ex. `# fdisk -l /dev/sda`
-```terminal
+```bash
 ubuntu@lts:~$ sudo fdisk -l /dev/sda
 Disk /dev/sda: 10 GiB, 10737418240 bytes, 20971520 sectors
 Disk model: QEMU HARDDISK   
@@ -170,7 +170,7 @@ Partition table entries are not in disk order.
     - ファイルシステムをアンマウントしておくか、少なくとも読み取り専用でマウントしておくこと
     - 実体はファイルシステムごとに用意されたチェックプログラムのフロントエンド
     - Linux起動時に自動実行され、`/etc/fstab`でfsckの対象に指定しているファイルシステムをチェックする
-```terminal
+```bash
 ubuntu@lts:~$ cat /etc/fstab
 LABEL=cloudimg-rootfs	/	 ext4	discard,errors=remount-ro	0 1
 LABEL=UEFI	/boot/efi	vfat	umask=0077	0 1
@@ -273,10 +273,51 @@ XFSファイルシステムの主な操作コマンド
 - `find`コマンド：`find <検索ディレクトリ> <検索式>`
     - 実行ユーザが検索ディレクトリに対するアクセス権限を持っている必要がある
     - ファイル名に加えアクセス権やファイルサイズ、更新日時などを併用して検索できたり、メタキャラクタが使えたり、検索後にアクションを起こすなど、色々できる
-- `locate`コマンド：
-- `updatedb`コマンド：
-- `which`コマンド：
-- `whereis`コマンド：
-- `type`コマンド：
--
 
+※findコマンドの使い方に”熟達”しておこう
+
+- `locate`コマンド：あらかじめ作成されたデータベースに基づき、指定されたパターンに一致するファイルを検索する
+    - findより速い
+    - （Ubuntu22.04LTSには入ってなかった。updatedbも。）
+- `updatedb`コマンド：locateコマンドで参照するデータベースを更新する
+    - 多くのディストリビューションで、cronを用いて定期実行されるようになっている
+    - `/etc/updatedb.conf`でコマンドの動作の設定をしている
+- `which`コマンド：コマンドを探して絶対パスを表示する
+    - 書式：`which <コマンド名>`
+    - 実行ユーザの環境変数PATHに基づいて検索を行うため、検索結果がヒットしない場合もある
+- `whereis`コマンド：指定したコマンドのバイナリファイル、ソースコード、マニュアルファイルが置かれている場所(絶対パス)を検索する
+    - 書式：`whereis <オプション> <コマンド名>`
+- `type`コマンド：指定したコマンドが、通常の実行ファイルか、シェルノ組み込みコマンドか、エイリアスか、を表示する
+    - 書式：`type <コマンド名>`
+        - xxx is hased：シェルのhash tableにxxxの実行ファイルのパスを記憶している、という意味らしい
+            - ビルトインでないコマンドを実行する場合、環境変数PATHから該当の実行ファイルを探すが、頻繁に使うコマンドは「ハッシュテーブル」に記憶することで高速化を図る
+            - （保存先はわかんないや）
+```bash
+ubuntu@lts:~$ type cat
+cat is hashed (/usr/bin/cat)
+ubuntu@lts:~$ type echo
+echo is a shell builtin
+ubuntu@lts:~$ type vi
+vi is /usr/bin/vi
+ubuntu@lts:~$ type vim
+vim is /usr/bin/vim
+ubuntu@lts:~$ type for
+for is a shell keyword
+ubuntu@lts:~$ type ls
+ls is aliased to `ls --color=auto'
+```
+
+```bash
+ubuntu@lts:~$ hash
+hits	command
+   1	/usr/sbin/blkid
+   4	/usr/bin/mount
+   3	/usr/bin/find
+   4	/usr/bin/ls
+   6	/usr/bin/clear
+   4	/usr/bin/cat
+   2	/usr/bin/lsof
+   3	/usr/bin/sudo
+```
+
+※重要：locateはfindより速い、whichはパスの通ったコマンドのみ検索できる
