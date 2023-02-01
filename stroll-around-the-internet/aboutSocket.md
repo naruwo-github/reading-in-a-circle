@@ -7,9 +7,9 @@
     - 様々な通信があるところ、まとめてファイルとして扱うための存在
 - 通常は無名ファイルなのでファイルシステム上では見えない存在だが、名前付きのソケットファイルの作成は可能
     - `ls -l`やると、socketファイルは先頭が`s`になる
+- 通常は無名ファイルで、`sockfs`という専用のファイルシステムで管理される
 
 ## 機能
-- 通常は無名ファイルで、`sockfs`という専用のファイルシステムで管理される
 - 異なるプロセス間でデータのやり取りができる（この点、pipeと類似）
     - 使用するファイル数
         - socket: 双方個別に用意し、その間をOSが仲介
@@ -36,12 +36,14 @@ ubuntu@lts:/var/log$ tail -n 1 syslog
 Feb  1 15:03:39 lts ubuntu: hello
 ```
 
+図：パイプとソケット
 <img src="https://camo.qiitausercontent.com/033ad0b73434f36904d3966cb6169b02136f7a88/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f37343339362f38306531373864662d306131362d306135652d383030642d3262326465663438313464612e706e67" alt="diff-btw-pipe-socket" width="300px">
 
+図：loggerとソケット
 <img src="https://camo.qiitausercontent.com/ef6df83c59c3a51eedf1040edcb6c5f563b7a980/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f37343339362f61623364376334342d326235632d353938342d326263312d6434393263343265393239622e706e67" alt="logger" width="300px">
 
 画像出典：Referenceに記載した記事
 
 ## Reference
 - LINUX教科書LPICレベル1
-- https://qiita.com/angel_p_57/items/1faafa275525469788b4#%E3%82%BD%E3%82%B1%E3%83%83%E3%83%88%E3%81%AE%E6%A9%9F%E8%83%BD
+- [Linuxのファイルの種類](https://qiita.com/angel_p_57/items/1faafa275525469788b4)
