@@ -15,8 +15,9 @@
     - 重複コードをテンプレート側に抽出できる
 - Cons
     - テンプレート内のアルゴリズムの骨格が制約となる場合がある
-    - サブクラス実装時に親クラスの中のデフォルトステップの実装をスキップでき、これはリスコフの置換原則を破ることになる
+    - サブクラス実装時に親クラスの中のデフォルトステップの実装をスキップするとリスコフの置換原則を破ることになる
     - ステップ数が増えると（親クラス内のアルゴリズムが増えると）サブクラス実装やそれらのメンテナンスがどんどん辛くなる
 
 ## Reference
 - https://refactoring.guru/design-patterns/template-method
+- https://www.tutorialspoint.com/design_pattern/template_pattern.htm
