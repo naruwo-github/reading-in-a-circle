@@ -11,7 +11,7 @@
 - 構成
     - Banner.java
     - Print.java
-    - PrintBanner.java
+    - PrintBanner.java -> Adapter
     - Main.java
 
 |  | 電源の比喩 | program |
