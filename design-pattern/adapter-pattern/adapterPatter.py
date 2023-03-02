@@ -1,43 +1,36 @@
-"""
-このコードでは、Targetクラスがターゲットインターフェースを定義し、Adapteeクラスがアダプティークラス（既存のクラス）を定義しています。
-Adapter クラスがアダプタークラスを定義し、Target インターフェースを実装します。
-アダプタークラスのコンストラクタで、アダプティークラスのインスタンスを受け取ります。
-Adapter クラスの request() メソッドが呼ばれた場合、アダプティークラスの specific_request() メソッドを呼び出します。
-最後に、Adaptee クラスの specific_request() メソッドが呼ばれることを確認するために、Adapter クラスのインスタンスを作成し、request() メソッドを呼び出します。
-"""
-
-
 class Target:
     """
-    ターゲットインターフェース
+    ターゲットインターフェース(抽象)
     """
 
     def request(self):
         pass
 
 
-class Adaptee:
+class Adapted:
     """
-    アダプティークラス（既存のクラス）
+    既存クラス(具象)
     """
 
     def specific_request(self):
-        print("アダプティーのメソッドが呼ばれました。")
+        print("既存クラスのメソッドが呼ばれました。")
 
 
 class Adapter(Target):
     """
-    アダプタークラス
+    アダプタークラス(具象)
+    Targetインタフェースを実装する
     """
 
-    def __init__(self, adaptee: Adaptee):
-        self.adaptee = adaptee
+    def __init__(self, adapted: Adapted):
+        # コンストラクタで、既存クラスのインスタンスを受け取る
+        self.adapted = adapted
 
     def request(self):
-        self.adaptee.specific_request()
+        self.adapted.specific_request()
 
 
 if __name__ == '__main__':
-    adaptee = Adaptee()
-    adapter = Adapter(adaptee)
+    adapted = Adapted()
+    adapter = Adapter(adapted)
     adapter.request()

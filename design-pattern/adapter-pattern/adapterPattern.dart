@@ -1,36 +1,32 @@
-/*
-このコードでは、Target 抽象クラスがターゲットインターフェースを定義し、Adapteeクラスがアダプティークラス（既存のクラス）を定義しています。
-Adapter クラスがアダプタークラスを定義し、Target インターフェースを実装します。
-アダプタークラスのコンストラクタで、アダプティークラスのインスタンスを受け取ります。
-Adapter クラスの request() メソッドが呼ばれた場合、アダプティークラスの specificRequest() メソッドを呼び出します。
-最後に、Adaptee クラスの specificRequest() メソッドが呼ばれることを確認するために、Adapter クラスのインスタンスを作成し、request() メソッドを呼び出します。
-*/
-
 abstract class Target {
+  // ターゲットインタフェース(抽象)
   void request();
 }
 
-class Adaptee {
+class Adapted {
+  // 既存クラス(具象)
   void specificRequest() {
-    print('アダプティーのメソッドが呼ばれました。');
+    print('既存クラスのメソッドが呼ばれました。');
   }
 }
 
 class Adapter implements Target {
-  Adaptee _adaptee;
+  // アダプタークラス(具象)
+  // Targetインタフェースを実装する
+  late Adapted _adapted;
 
-  Adapter(Adaptee adaptee) {
-    _adaptee = adaptee;
+  Adapter(Adapted adapted) {
+    _adapted = adapted;
   }
 
   @override
   void request() {
-    _adaptee.specificRequest();
+    _adapted.specificRequest();
   }
 }
 
 void main() {
-  var adaptee = Adaptee();
-  var adapter = Adapter(adaptee);
+  var adapted = Adapted();
+  var adapter = Adapter(adapted);
   adapter.request();
 }

@@ -1,12 +1,3 @@
-/*
-このコードでは、Target クラスがターゲットインターフェースを定義し、Adapteeクラスがアダプティークラス（既存のクラス）を定義しています。
-Adapter クラスがアダプタークラスを定義し、Target インターフェースを実装します。
-アダプタークラスのコンストラクタで、アダプティークラスのポインタを受け取ります。
-Adapter クラスの request() メソッドが呼ばれた場合、アダプティークラスの specificRequest() メソッドを呼び出します。
-最後に、Adaptee クラスの specificRequest() メソッドが呼ばれることを確認するために、Adapter クラスのインスタンスを作成し、request() メソッドを呼び出します。
-このコードを実行すると、以下のように出力されます。
-*/
-
 #include <iostream>
 
 class Target
@@ -15,36 +6,36 @@ public:
     virtual void request() = 0;
 };
 
-class Adaptee
+class Adapted
 {
 public:
     void specificRequest()
     {
-        std::cout << "アダプティーのメソッドが呼ばれました。" << std::endl;
+        std::cout << "既存クラスのメソッドが呼ばれました。" << std::endl;
     }
 };
 
 class Adapter : public Target
 {
 private:
-    Adaptee *adaptee;
+    Adapted *adapted;
 
 public:
-    Adapter(Adaptee *adaptee)
+    Adapter(Adapted *adapted)
     {
-        this->adaptee = adaptee;
+        this->adapted = adapted;
     }
 
     void request()
     {
-        adaptee->specificRequest();
+        adapted->specificRequest();
     }
 };
 
 int main()
 {
-    Adaptee *adaptee = new Adaptee();
-    Target *adapter = new Adapter(adaptee);
+    Adapted *adapted = new Adapted();
+    Target *adapter = new Adapter(adapted);
     adapter->request();
     return 0;
 }
