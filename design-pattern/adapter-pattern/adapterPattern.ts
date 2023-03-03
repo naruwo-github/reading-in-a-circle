@@ -2,25 +2,25 @@ interface Target {
     request(): void;
   }
   
-  class Adapted {
+  class Adaptee {
     specificRequest(): void {
       console.log("既存クラスのメソッドが呼ばれました。");
     }
   }
   
   class Adapter implements Target {
-    private adapted: Adapted;
+    private adaptee: Adaptee;
   
-    constructor(adapted: Adapted) {
-      this.adapted = adapted;
+    constructor(adaptee: Adaptee) {
+      this.adaptee = adaptee;
     }
   
     request(): void {
-      this.adapted.specificRequest();
+      this.adaptee.specificRequest();
     }
   }
   
-  const adapted = new Adapted();
-  const adapter = new Adapter(adapted);
+  const adaptee = new Adaptee();
+  const adapter = new Adapter(adaptee);
   adapter.request();
   

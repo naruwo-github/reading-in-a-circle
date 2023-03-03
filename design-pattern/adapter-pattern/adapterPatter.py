@@ -7,7 +7,7 @@ class Target:
         pass
 
 
-class Adapted:
+class Adaptee:
     """
     既存クラス(具象)
     """
@@ -22,15 +22,15 @@ class Adapter(Target):
     Targetインタフェースを実装する
     """
 
-    def __init__(self, adapted: Adapted):
+    def __init__(self, adaptee: Adaptee):
         # コンストラクタで、既存クラスのインスタンスを受け取る
-        self.adapted = adapted
+        self.adaptee = adaptee
 
     def request(self):
-        self.adapted.specific_request()
+        self.adaptee.specific_request()
 
 
 if __name__ == '__main__':
-    adapted = Adapted()
-    adapter = Adapter(adapted)
+    adaptee = Adaptee()
+    adapter = Adapter(adaptee)
     adapter.request()

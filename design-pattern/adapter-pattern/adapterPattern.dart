@@ -3,7 +3,7 @@ abstract class Target {
   void request();
 }
 
-class Adapted {
+class Adaptee {
   // 既存クラス(具象)
   void specificRequest() {
     print('既存クラスのメソッドが呼ばれました。');
@@ -13,20 +13,20 @@ class Adapted {
 class Adapter implements Target {
   // アダプタークラス(具象)
   // Targetインタフェースを実装する
-  late Adapted _adapted;
+  late Adaptee _adaptee;
 
-  Adapter(Adapted adapted) {
-    _adapted = adapted;
+  Adapter(Adaptee adaptee) {
+    _adaptee = adaptee;
   }
 
   @override
   void request() {
-    _adapted.specificRequest();
+    _adaptee.specificRequest();
   }
 }
 
 void main() {
-  var adapted = Adapted();
-  var adapter = Adapter(adapted);
+  var adaptee = Adaptee();
+  var adapter = Adapter(adaptee);
   adapter.request();
 }

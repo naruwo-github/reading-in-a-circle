@@ -6,7 +6,7 @@ public:
     virtual void request() = 0;
 };
 
-class Adapted
+class Adaptee
 {
 public:
     void specificRequest()
@@ -18,24 +18,24 @@ public:
 class Adapter : public Target
 {
 private:
-    Adapted *adapted;
+    Adaptee *adaptee;
 
 public:
-    Adapter(Adapted *adapted)
+    Adapter(Adaptee *adaptee)
     {
-        this->adapted = adapted;
+        this->adaptee = adaptee;
     }
 
     void request()
     {
-        adapted->specificRequest();
+        adaptee->specificRequest();
     }
 };
 
 int main()
 {
-    Adapted *adapted = new Adapted();
-    Target *adapter = new Adapter(adapted);
+    Adaptee *adaptee = new Adaptee();
+    Target *adapter = new Adapter(adaptee);
     adapter->request();
     return 0;
 }
