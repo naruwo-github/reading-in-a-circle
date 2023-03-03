@@ -30,6 +30,6 @@
 
 - 構成
   - Banner.java(継承を使う場合と一緒)
-  - Print.java
+  - PrintClass.java(Class であることを明示するために Prefix に Class をつけた)
   - PrintBanner.java -> Adapter
   - Main.java(継承を使う場合と一緒)
