@@ -35,7 +35,7 @@
 
 ## Related Pattern
 
-- Factory Method Pattern
+- [Factory Method Pattern](../04-factory-method-pattern/)
   - Template Method Pattern をインスタンス生成に応用したもの
 - Strategy Pattern
   - Template Method Pattern では継承を利用してプログラムの動作を変更できる

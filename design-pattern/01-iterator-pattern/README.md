@@ -18,5 +18,5 @@
     - たくさんの要素が集まっている中を渡り歩きながら、同じ処理を繰り帰り適用する
 - Composite Pattern
     - 再帰的な構造を持ったパターンで、これにIterator Patternを適用するのは困難
-- Factory Method Pattern
+- [Factory Method Pattern](../04-factory-method-pattern/)
     - Iteratorインスタンスを作成する際に使われることがある→組み合わせられる
