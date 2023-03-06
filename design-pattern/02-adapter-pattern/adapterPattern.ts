@@ -1,24 +1,28 @@
-interface Target {
+interface DirectCurrent {
+  // 直流12V
   request(): void;
 }
 
-class Adaptee {
+class AlternatingCurrent {
+  // 交流100V
   specificRequest(): void {
-    console.log("既存クラスのメソッドが呼ばれました。");
+    console.log("コンセントから交流100Vを提供する。");
   }
 }
-class Adapter implements Target {
-  private adaptee: Adaptee;
+class ACAdapter implements DirectCurrent {
+  // ACアダプター
+  private adaptee: AlternatingCurrent;
 
-  constructor(adaptee: Adaptee) {
+  constructor(adaptee: AlternatingCurrent) {
     this.adaptee = adaptee;
   }
 
   request(): void {
     this.adaptee.specificRequest();
+    console.log('交流100Vを直流12Vに変換する。')
   }
 }
 
-const adaptee = new Adaptee();
-const adapter = new Adapter(adaptee);
+const adaptee = new AlternatingCurrent();
+const adapter = new ACAdapter(adaptee);
 adapter.request();
