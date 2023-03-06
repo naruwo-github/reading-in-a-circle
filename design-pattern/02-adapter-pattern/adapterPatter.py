@@ -1,6 +1,6 @@
 class Target:
     """
-    ターゲットインターフェース(抽象)
+    ターゲットクラス/インターフェース(抽象)
     """
 
     def request(self):
@@ -9,7 +9,7 @@ class Target:
 
 class Adaptee:
     """
-    既存クラス(具象)
+    提供される既存クラス(具象)
     """
 
     def specific_request(self):
@@ -19,7 +19,8 @@ class Adaptee:
 class Adapter(Target):
     """
     アダプタークラス(具象)
-    Targetインタフェースを実装する
+    - Targetインタフェースを実装する
+    - Adapteeクラスを覆う
     """
 
     def __init__(self, adaptee: Adaptee):
@@ -31,6 +32,8 @@ class Adapter(Target):
 
 
 if __name__ == '__main__':
-    adaptee = Adaptee()
-    adapter = Adapter(adaptee)
+    """
+    Targetのメソッドを使うクライアント
+    """
+    adapter = Adapter(Adaptee())
     adapter.request()
