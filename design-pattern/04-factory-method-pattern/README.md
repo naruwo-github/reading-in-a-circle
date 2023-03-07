@@ -34,7 +34,29 @@
 
 ## Usage/Tips
 
+- `createProduct`メソッドの実装方法は 2 通り
+  - 抽象メソッドにする
+    - サブクラスは必ず`createProduct`を実装しなければならない
+  ```java
+  abstract class Factory {
+    public abstract Product createProduct(String name);
+  }
+  ```
+  - デフォルト実装を用意しておく
+    - Product を直接`new`するので、Product クラスを具体クラスにしなければならない
+  ```java
+  class Factory {
+    public Product createProduct(String name) {
+      return new Product(name);
+    }
+  }
+  ```
+
 ## Pros and Cons
+
+- Pros
+  - framework 側は具体クラスに依存していないため、何も変更を加えることなく framework を使い回すことができる
+- Cons
 
 ## Related Patterns
 
