@@ -20,6 +20,18 @@
 - ConcreteCreator
   - 具体的な肉付けをする側
 
+## Sample Code
+
+- 題材：身分証明書カードを作る工場
+- 構成
+  - framework package
+    - Product
+    - Factory
+  - idcard package
+    - IDCard
+    - IDCardFactory
+  - Main.java
+
 ## Usage/Tips
 
 ## Pros and Cons
