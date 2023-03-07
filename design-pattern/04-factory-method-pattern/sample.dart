@@ -39,6 +39,7 @@ void main() {
   final myDog = Pet('dog', 'Rufus');
   print('${myDog.name} says ${myDog.speak()}');
 
-  // Throws ArgumentError because "parrot" is not a valid pet type
+  // Throws ArgumentError
+  //  because "parrot" is not a valid pet type
   //final myPet = Pet('parrot', 'Polly');
 }

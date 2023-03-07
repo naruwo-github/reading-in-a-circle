@@ -1,24 +1,18 @@
 # Factory Method Pattern
 
-- Template Method Pattern をインスタンス生成の場面に適用したもの
-- インスタンスの作り方をスーパークラス側で定めるが、具体的なクラス名までは定めない
-- 具体的な肉付けは全てサブクラス側で行う
+- `Template Method Pattern`をインスタンス生成の場面に適用したもの
+- スーパークラス側でインスタンスの作り方を定め、具体的な肉付けはサブクラス側で行う
 - インスタンス生成の枠組み（フレームワーク）と実際のインスタンス生成のクラスとを分けて考えることができる
 
 ## Role
 
-- Product
-  - フレームワーク側
-  - 生成されるインスタンスが持つべきインタフェースを定める抽象クラス
-- Creator
-  - フレームワーク側
-  - Product を生成する抽象クラス
-  - 実際に生成する ConcreteProduct については何も知らない
-  - new による実際のインスタンス生成を、インスタンス生成のためのメソッド呼び出しに代える → 具体的なクラス名による束縛からスーパークラスを解放する
-- ConcreteProduct
-  - 具体的な肉付けをする側
-- ConcreteCreator
-  - 具体的な肉付けをする側
+| name            | duty                                                             |
+| --------------- | ---------------------------------------------------------------- |
+| Product         | 生成されるインスタンスが持つべきインタフェースを定める抽象クラス |
+| Creator         | Product を生成する抽象クラス。                                   |
+|                 | 実際に生成する ConcreteProduct については何も知らない。          |
+| ConcreteProduct | Product に対し、具体的な肉付けをする側                           |
+| ConcreteCreator | Creator に対し、具体的な肉付けをする側                           |
 
 ## Sample Code
 
@@ -38,24 +32,30 @@
 
 - 題材：異なるタイプのペットを作成する
 - 詳細
-  - 抽象クラス`Pet`を定義し、`name`と`speak`の 2 つのプロパティを宣言する。
-    - また`Pet`クラスには`factory`メソッドを定義する。このメソッドでは、与えられた引数に基づいて、適切なタイプのペットのインスタンスを返す。
-  - `Cat`と`Dog`クラスは`Pet`クラスを実装し、それぞれ`speak`メソッドをオーバーライドして、それぞれのペットの鳴き声を返す。
-  - `main`関数では、`Petファクトリーメソッド`を使用して、`Cat`と`Dog`の 2 つのインスタンスを作成し、それぞれの名前と鳴き声を出力する。
-    - また、`Petファクトリーメソッド`に無効なタイプのペットを指定した場合は、`ArgumentError`をスローする。
+  - 抽象クラス`Pet`を定義し、`name`と`speak`の 2 つのプロパティ、また`factory`メソッドを定義する
+  - `Cat`と`Dog`クラスは`Pet`クラスを実装する
+  - `main`関数では、`Cat`と`Dog`の 2 つのインスタンスを作成し、それぞれの名前と鳴き声を出力する。
+    - `Pet`クラスの`factory`に無効なタイプのペットを指定した場合は、`ArgumentError`をスローする。
+
+Dart ってファクトリーメソッドがあるらしい 👀
+[公式 factory constructor](https://dart.dev/guides/language/language-tour#factory-constructors:~:text=using%20constructors.-,Factory%20constructors,-Use%20the%20factory)
 
 ## Usage/Tips
 
 - `createProduct`メソッドの実装方法は 2 通り
+
   - 抽象メソッドにする
     - サブクラスは必ず`createProduct`を実装しなければならない
+
   ```java
   abstract class Factory {
     public abstract Product createProduct(String name);
   }
   ```
+
   - デフォルト実装を用意しておく
     - Product を直接`new`するので、Product クラスを具体クラスにしなければならない
+
   ```java
   class Factory {
     public Product createProduct(String name) {
@@ -63,6 +63,8 @@
     }
   }
   ```
+
+- 全ての開発者や保守担当者がデザインパターンを知っているとは限らない（むしろ知らない方が多いかも）ので、ソースコード上で加えて欲しくない変更があれば、その Why をコメントとして残しておくべき
 
 ## Pros and Cons
 
