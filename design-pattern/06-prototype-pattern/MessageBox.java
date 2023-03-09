@@ -7,6 +7,10 @@ public class MessageBox implements Product {
         this.decochar = decochar;
     }
 
+    public MessageBox(MessageBox prototype) {
+        this.decochar = prototype.decochar;
+    }
+
     @Override
     public void use(String s) {
         int decolen = 1 + s.length() + 1;
@@ -23,12 +27,7 @@ public class MessageBox implements Product {
 
     @Override
     public Product createCopy() {
-        Product p = null;
-        try {
-            p = (Product) clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        Product p = new MessageBox(this);
         return p;
     }
 }

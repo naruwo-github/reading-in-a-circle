@@ -7,6 +7,10 @@ public class UnderlinePen implements Product {
         this.ulchar = ulchar;
     }
 
+    public UnderlinePen(UnderlinePen prototype) {
+        this.ulchar = prototype.ulchar;
+    }
+
     @Override
     public void use(String s) {
         int ulen = s.length();
@@ -19,12 +23,7 @@ public class UnderlinePen implements Product {
 
     @Override
     public Product createCopy() {
-        Product p = null;
-        try {
-            p = (Product) clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        Product p = new UnderlinePen(this);
         return p;
     }
 }
