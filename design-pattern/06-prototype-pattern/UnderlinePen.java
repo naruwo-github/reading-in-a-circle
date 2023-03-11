@@ -1,29 +1,31 @@
 import framework.Product;
 
 public class UnderlinePen implements Product {
-    private char ulchar;
+    // concrete class for prototype
 
-    public UnderlinePen(char ulchar) {
-        this.ulchar = ulchar;
+    private char underlineChar;
+
+    public UnderlinePen(char underlineChar) {
+        this.underlineChar = underlineChar;
     }
 
     public UnderlinePen(UnderlinePen prototype) {
-        this.ulchar = prototype.ulchar;
+        this.underlineChar = prototype.underlineChar;
     }
 
     @Override
     public void use(String s) {
-        int ulen = s.length();
+        int underlineLength = s.length();
         System.out.println(s);
-        for (int i = 0; i < ulen; i++) {
-            System.out.print(this.ulchar);
+        for (int i = 0; i < underlineLength; i++) {
+            System.out.print(this.underlineChar);
         }
         System.out.println();
     }
 
     @Override
     public Product createCopy() {
-        Product p = new UnderlinePen(this);
-        return p;
+        Product product = new UnderlinePen(this);
+        return product;
     }
 }

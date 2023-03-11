@@ -3,28 +3,22 @@ import framework.Product;
 
 public class Main {
     public static void main(String[] args) {
-        // preparation
         Manager manager = new Manager();
-        UnderlinePen upen = new UnderlinePen('-');
-        MessageBox mbox = new MessageBox('*');
-        MessageBox sbox = new MessageBox('/');
+        UnderlinePen underlinePen = new UnderlinePen('-');
+        MessageBox warningBox = new MessageBox('*');
+        MessageBox slashBox = new MessageBox('/');
 
-        // registration
-        manager.register("strong message", upen);
-        manager.register("warning box", mbox);
-        manager.register("slash box", sbox);
+        manager.register("strong message", underlinePen);
+        manager.register("warning box", warningBox);
+        manager.register("slash box", slashBox);
 
-        // creation and use
-        Product p1 = manager.create("strong message");
-        p1.use("Hello, world.");
-
-        Product p2 = manager.create("warning box");
-        p2.use("Hello, world.");
-
-        Product p3 = manager.create("slash box");
-        p3.use("Hello, world.");
-
-        Product p4 = manager.create("warning box");
-        p4.use("Hello, world.");
+        Product product1 = manager.create("strong message");
+        product1.use("Hello, world.");
+        Product product2 = manager.create("warning box");
+        product2.use("Hello, world.");
+        Product product3 = manager.create("slash box");
+        product3.use("Hello, world.");
+        Product product4 = manager.create("warning box");
+        product4.use("Hello, world.");
     }
 }

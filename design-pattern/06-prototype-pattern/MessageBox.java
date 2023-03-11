@@ -1,33 +1,35 @@
 import framework.Product;
 
 public class MessageBox implements Product {
-    private char decochar;
+    // concrete class for prototype
 
-    public MessageBox(char decochar) {
-        this.decochar = decochar;
+    private char decoratingChar;
+
+    public MessageBox(char decoratingChar) {
+        this.decoratingChar = decoratingChar;
     }
 
     public MessageBox(MessageBox prototype) {
-        this.decochar = prototype.decochar;
+        this.decoratingChar = prototype.decoratingChar;
     }
 
     @Override
     public void use(String s) {
-        int decolen = 1 + s.length() + 1;
-        for (int i = 0; i < decolen; i++) {
-            System.out.print(this.decochar);
+        int decoratingLength = 1 + s.length() + 1;
+        for (int i = 0; i < decoratingLength; i++) {
+            System.out.print(this.decoratingChar);
         }
         System.out.println();
-        System.out.println(this.decochar + s + this.decochar);
-        for (int i = 0; i < decolen; i++) {
-            System.out.print(this.decochar);
+        System.out.println(this.decoratingChar + s + this.decoratingChar);
+        for (int i = 0; i < decoratingLength; i++) {
+            System.out.print(this.decoratingChar);
         }
         System.out.println();
     }
 
     @Override
     public Product createCopy() {
-        Product p = new MessageBox(this);
-        return p;
+        Product product = new MessageBox(this);
+        return product;
     }
 }
