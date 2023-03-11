@@ -21,25 +21,25 @@
   - 無名パッケージ：Main
   - listfactory：具体的な工場・部品・製品
 
-| Package name | Class name  | Description                                     |
-| ------------ | ----------- | ----------------------------------------------- |
-| factory      | Factory     | Link, Tray, Page を作る`抽象`クラス             |
-| factory      | Item        | Lint, Tray を統一的に扱うためのクラス           |
-| factory      | Link        | `抽象`的な部品：HTML のリンクを表すクラス       |
-| factory      | Tray        | `抽象`的な部品：Link, Tray を集めたクラス       |
-| factory      | Page        | `抽象`的な部品：HTML のページを表すクラス       |
-| ------------ | ----------- | ----------------------------------------------- |
-| no title     | Main        | ...                                             |
-| ------------ | ----------- | ----------------------------------------------- |
-| listfactory  | ListFactory | ListLink, ListTray, ListPage を作る`具体`クラス |
-| listfactory  | ListLink    | `具体`的な部品：HTML のリンクを表すクラス       |
-| listfactory  | ListTray    | `具体`的な部品：Link, Tray を集めたクラス       |
-| listfactory  | ListPage    | `具体`的な部品：HTML のページを表すクラス       |
-| ------------ | ----------- | ----------------------------------------------- |
-| divfactory   | DivFactory  | DivLink, DivTray, DivPage を作る`具体`クラス    |
-| divfactory   | DivLink     | `具体`的な部品：HTML のリンクを表すクラス       |
-| divfactory   | DivTray     | `具体`的な部品：DivLink, DivTray を集めたクラス |
-| divfactory   | DivPage     | `具体`的な部品：HTML のページを表すクラス       |
+| Package name | Class name  | Description                                       |
+| ------------ | ----------- | ------------------------------------------------- |
+| factory      | Factory     | Link, Tray, Page を作る`抽象`クラス               |
+| factory      | Item        | Lint, Tray を統一的に扱うためのクラス             |
+| factory      | Link        | `抽象`的な部品：HTML のリンクを表すクラス         |
+| factory      | Tray        | `抽象`的な部品：Link, Tray を集めたクラス         |
+| factory      | Page        | `抽象`的な部品：HTML のページを表すクラス         |
+|              |             |                                                   |
+| no title     | Main        | ...                                               |
+|              |             |                                                   |
+| listfactory  | ListFactory | ListLink, ListTray, ListPage を作る`具体`クラス   |
+| listfactory  | ListLink    | `具体`的な部品：HTML のリンクを表すクラス         |
+| listfactory  | ListTray    | `具体`的な部品：ListLink, ListTray を集めたクラス |
+| listfactory  | ListPage    | `具体`的な部品：HTML のページを表すクラス         |
+|              |             |                                                   |
+| divfactory   | DivFactory  | DivLink, DivTray, DivPage を作る`具体`クラス      |
+| divfactory   | DivLink     | `具体`的な部品：HTML のリンクを表すクラス         |
+| divfactory   | DivTray     | `具体`的な部品：DivLink, DivTray を集めたクラス   |
+| divfactory   | DivPage     | `具体`的な部品：HTML のページを表すクラス         |
 
 ## Usage/Tips/Pros and Cons
 
