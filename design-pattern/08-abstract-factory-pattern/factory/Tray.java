@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public abstract class Tray extends Item {
-    protected List<Item> tray = new ArrayList<>();
+    private List<Item> tray = new ArrayList<>();
 
     public Tray(String caption) {
         super(caption);
@@ -12,6 +12,10 @@ public abstract class Tray extends Item {
 
     public void add(Item item) {
         tray.add(item);
+    }
+
+    public List<Item> getTray() {
+        return this.tray;
     }
 
     // 一見抽象メソッドを持ってないが、

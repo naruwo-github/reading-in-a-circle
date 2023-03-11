@@ -21,4 +21,12 @@ public abstract class Factory {
     public abstract Tray createTray(String caption);
 
     public abstract Page createPage(String caption, String author);
+
+    // ex. 具象クラスの追加
+    public Page createYahooPage() {
+        Link yahooLink = this.createLink("Yahoo!", "https://www.yahoo.com/");
+        Page yahooPage = this.createPage("Yahoo!", "Yahoo!");
+        yahooPage.add(yahooLink);
+        return yahooPage;
+    }
 }

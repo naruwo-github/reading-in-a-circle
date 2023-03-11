@@ -14,7 +14,7 @@ public class ListTray extends Tray {
         sb.append("<li>\n");
         sb.append(this.caption + "\n");
         sb.append("<ul>\n");
-        for (Item item : this.tray) {
+        for (Item item : this.getTray()) {
             // ListLink, ListTrayはどちらもItemクラスのサブクラス
             // なので中身を気にせずmakeHTMLを呼び出せる
             sb.append(item.makeHTML());
