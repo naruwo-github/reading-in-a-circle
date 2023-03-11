@@ -6,8 +6,8 @@ public class Main {
         // このクラスでは具体的な部品、製品、工場を一切利用していない
         if (args.length != 2) {
             System.out.println("Usage: java Main filename.html class.name.of.ConcreteFactory");
-            System.out.println("Example 1: java Main list.html listfactory.ListFactory");
-            System.out.println("Example 2: java Main div.html divfactory.DivFactory");
+            System.out.println("Example 1: java Main list.html listFactory.ListFactory");
+            System.out.println("Example 2: java Main div.html divFactory.DivFactory");
             System.exit(0);
         }
 

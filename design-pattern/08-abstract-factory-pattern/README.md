@@ -31,6 +31,7 @@
 | factory      | Link        | (`AbstractProduct`)`抽象`的な部品：HTML のリンクを表すクラス         |
 | factory      | Tray        | (`AbstractProduct`)`抽象`的な部品：Link, Tray を集めたクラス         |
 | factory      | Page        | (`AbstractProduct`)`抽象`的な部品：HTML のページを表すクラス         |
+| factory      | HTMLable    | (`AbstractProduct`)HTML を作成する処理のインタフェースを定義する     |
 |              |             |                                                                      |
 | no title     | Main        | (`Client`)                                                           |
 |              |             | --- 以降は具体 ↓↓↓ ---                                               |
