@@ -3,46 +3,46 @@ import java.io.Writer;
 
 public class HTMLBuilder extends Builder {
     private String filename = "./untitled.html";
-    private StringBuilder sb = new StringBuilder();
+    private StringBuilder stringBuilder = new StringBuilder();
 
     @Override
     public void makeTitle(String title) {
         filename = "./" + title + ".html";
-        this.sb.append("<html>\n");
-        this.sb.append("<body>\n");
-        this.sb.append("<h1>");
-        this.sb.append(title);
-        this.sb.append("</h1>\n");
+        this.stringBuilder.append("<html>\n");
+        this.stringBuilder.append("<body>\n");
+        this.stringBuilder.append("<h1>");
+        this.stringBuilder.append(title);
+        this.stringBuilder.append("</h1>\n");
     }
 
     @Override
     public void makeString(String str) {
-        this.sb.append("<p>");
-        this.sb.append(str);
-        this.sb.append("</p>\n");
+        this.stringBuilder.append("<p>");
+        this.stringBuilder.append(str);
+        this.stringBuilder.append("</p>\n");
     }
 
     @Override
     public void makeItems(String[] items) {
-        this.sb.append("<ul>\n");
-        for (String s : items) {
-            this.sb.append("<li>");
-            this.sb.append(s);
-            this.sb.append("</li>\n");
+        this.stringBuilder.append("<ul>\n");
+        for (String item : items) {
+            this.stringBuilder.append("<li>");
+            this.stringBuilder.append(item);
+            this.stringBuilder.append("</li>\n");
         }
-        this.sb.append("</ul>\n");
+        this.stringBuilder.append("</ul>\n");
     }
 
     @Override
     public void close() {
-        this.sb.append("</body>\n");
-        this.sb.append("</html>\n");
+        this.stringBuilder.append("</body>\n");
+        this.stringBuilder.append("</html>\n");
         try {
-            Writer writer = new FileWriter(this.filename);
-            writer.write(sb.toString());
-            writer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            Writer fileWriter = new FileWriter(this.filename);
+            fileWriter.write(stringBuilder.toString());
+            fileWriter.close();
+        } catch (Exception error) {
+            error.printStackTrace();
         }
     }
 

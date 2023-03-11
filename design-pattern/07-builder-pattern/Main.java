@@ -5,17 +5,17 @@ public class Main {
             System.exit(0);
         }
         if (args[0].equals("text")) {
-            TextBuilder textbuilder = new TextBuilder();
-            Director director = new Director(textbuilder);
+            TextBuilder textBuilder = new TextBuilder();
+            Director director = new Director(textBuilder);
             director.construct();
-            System.out.println(textbuilder.getTextResult());
+            System.out.println(textBuilder.getTextResult());
             return;
         }
         if (args[0].equals("html")) {
-            HTMLBuilder htmlbuilder = new HTMLBuilder();
-            Director director = new Director(htmlbuilder);
+            HTMLBuilder htmlBuilder = new HTMLBuilder();
+            Director director = new Director(htmlBuilder);
             director.construct();
-            System.out.println(htmlbuilder.getHTMLResult());
+            System.out.println(htmlBuilder.getHTMLResult());
             return;
         }
         usage();
