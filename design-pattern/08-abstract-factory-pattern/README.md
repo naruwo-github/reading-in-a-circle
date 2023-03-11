@@ -1,7 +1,7 @@
 # Abstract Factory Pattern
 
 - `抽象`的な部品を組み合わせて`抽象`的な製品を作る`抽象`的な工場
-- 部品の具体的な実装には注目せず、インタフェースに注目することで、そのインタフェースだけを使って部品を組み立てて製品を作り上げるパターン
+- 部品の`具体`的な実装には**注目せず**、インタフェース(`抽象`)に注目することで、そのインタフェースだけを使って部品を組み立てて製品を作り上げる
 
 ## Role
 
@@ -11,6 +11,7 @@
 | `AbstractFactory` | `AbstractProduct` のインスタンスを作るためのインタフェースを定義する             |
 | `Client`          | `AbstractFactory` と `AbstractProduct` のインタフェース`のみ`を使って仕事を行う  |
 |                   | 具体的な部品や製品や工場については知らない                                       |
+|                   | --- 以降は具体 ↓↓↓ ---                                                           |
 | `ConcreteProduct` | `AbstractProduct` のインタフェースを実する                                       |
 | `ConcreteFactory` | `AbstractFactory` のインタフェースを実装する                                     |
 
@@ -32,7 +33,7 @@
 | factory      | Page        | (`AbstractProduct`)`抽象`的な部品：HTML のページを表すクラス         |
 |              |             |                                                                      |
 | no title     | Main        | (`Client`)                                                           |
-|              |             |                                                                      |
+|              |             | --- 以降は具体 ↓↓↓ ---                                               |
 | listFactory  | ListFactory | (`ConcreteFactory`)ListLink, ListTray, ListPage を作る`具体`クラス   |
 | listFactory  | ListLink    | (`ConcreteProduct`)`具体`的な部品：HTML のリンクを表すクラス         |
 | listFactory  | ListTray    | (`ConcreteProduct`)`具体`的な部品：ListLink, ListTray を集めたクラス |
@@ -45,12 +46,16 @@
 
 ## Usage/Tips/Pros and Cons
 
-- 具体的な工場を新規追加するのが簡単
-  - どのようなクラスを作り、どのようなメソッドを実装すればいいかがはっきりしている
-  - 具体的な工場をいくら追加しても抽象的な工場や Main 処理に変更を加えなくて良い
-- 部品を新たに追加するのは困難
+- Pros
 
-  - すでに存在する具体的な工場全てに修正を加える必要になる->既存の工場が多いほど、部品追加における拡張性が低下する
+  - 具体的な工場を新規追加するのが簡単
+    - どのようなクラスを作り、どのようなメソッドを実装すればいいかがはっきりしている
+    - 具体的な工場をいくら追加しても抽象的な工場や Main 処理に変更を加えなくて良い
+
+- Cons
+
+  - 部品を新たに追加するのは困難
+    - すでに存在する`具体`的な工場全てに修正を加える必要になる->既存の工場が多いほど、部品追加における拡張性が低下する
 
 - インスタンスの作り方いろいろ
   - new
