@@ -1,45 +1,47 @@
 # Abstract Factory Pattern
 
-- 部品の具体的な実装には注目せず、インタフェースに注目する->そのインタフェースだけを使って部品を組み立て、製品にまとめる
+- `抽象`的な部品を組み合わせて`抽象`的な製品を作る`抽象`的な工場
+- 部品の具体的な実装には注目せず、インタフェースに注目することで、そのインタフェースだけを使って部品を組み立てて製品を作り上げるパターン
 
 ## Role
 
-| Role            | Description                                                                  |
-| --------------- | ---------------------------------------------------------------------------- |
-| AbstractProduct | AbstractFactory によって作られる抽象的な部品や製品のインタフェースを定義する |
-| AbstractFactory | AbstractProduct のインスタンスを作るためのインタフェースを定義する           |
-| Client          | AbstractFactory と AbstractProduct のインタフェース`のみ`を使って仕事を行う  |
-|                 | 具体的な部品や製品や工場については知らない                                   |
-| ConcreteProduct | AbstractProduct のインタフェースを実する                                     |
-| ConcreteFactory | AbstractFactory のインタフェースを実装する                                   |
+| Role              | Description                                                                      |
+| ----------------- | -------------------------------------------------------------------------------- |
+| `AbstractProduct` | `AbstractFactory` によって作られる`抽象`的な部品や製品のインタフェースを定義する |
+| `AbstractFactory` | `AbstractProduct` のインスタンスを作るためのインタフェースを定義する             |
+| `Client`          | `AbstractFactory` と `AbstractProduct` のインタフェース`のみ`を使って仕事を行う  |
+|                   | 具体的な部品や製品や工場については知らない                                       |
+| `ConcreteProduct` | `AbstractProduct` のインタフェースを実する                                       |
+| `ConcreteFactory` | `AbstractFactory` のインタフェースを実装する                                     |
 
 ## Sample Code(Java)
 
 - プログラムの目的：階層構造を持ったリンク集を HTML ファイルとして作る
-- 3 つのパッケージで構成される
+- 4 つのパッケージで構成される
   - factory：抽象的な工場・部品・製品
   - 無名パッケージ：Main
   - listfactory：具体的な工場・部品・製品
+  - divfactory：同上
 
-| Package name | Class name  | Description                                       |
-| ------------ | ----------- | ------------------------------------------------- |
-| factory      | Factory     | Link, Tray, Page を作る`抽象`クラス               |
-| factory      | Item        | Lint, Tray を統一的に扱うためのクラス             |
-| factory      | Link        | `抽象`的な部品：HTML のリンクを表すクラス         |
-| factory      | Tray        | `抽象`的な部品：Link, Tray を集めたクラス         |
-| factory      | Page        | `抽象`的な部品：HTML のページを表すクラス         |
-|              |             |                                                   |
-| no title     | Main        | ...                                               |
-|              |             |                                                   |
-| listfactory  | ListFactory | ListLink, ListTray, ListPage を作る`具体`クラス   |
-| listfactory  | ListLink    | `具体`的な部品：HTML のリンクを表すクラス         |
-| listfactory  | ListTray    | `具体`的な部品：ListLink, ListTray を集めたクラス |
-| listfactory  | ListPage    | `具体`的な部品：HTML のページを表すクラス         |
-|              |             |                                                   |
-| divfactory   | DivFactory  | DivLink, DivTray, DivPage を作る`具体`クラス      |
-| divfactory   | DivLink     | `具体`的な部品：HTML のリンクを表すクラス         |
-| divfactory   | DivTray     | `具体`的な部品：DivLink, DivTray を集めたクラス   |
-| divfactory   | DivPage     | `具体`的な部品：HTML のページを表すクラス         |
+| Package name | Class name  | Description                                                          |
+| ------------ | ----------- | -------------------------------------------------------------------- |
+| factory      | Factory     | (`AbstractFactory`)Link, Tray, Page を作る`抽象`クラス               |
+| factory      | Item        | (`AbstractProduct`)Lint, Tray を統一的に扱うためのクラス             |
+| factory      | Link        | (`AbstractProduct`)`抽象`的な部品：HTML のリンクを表すクラス         |
+| factory      | Tray        | (`AbstractProduct`)`抽象`的な部品：Link, Tray を集めたクラス         |
+| factory      | Page        | (`AbstractProduct`)`抽象`的な部品：HTML のページを表すクラス         |
+|              |             |                                                                      |
+| no title     | Main        | (`Client`)                                                           |
+|              |             |                                                                      |
+| listfactory  | ListFactory | (`ConcreteFactory`)ListLink, ListTray, ListPage を作る`具体`クラス   |
+| listfactory  | ListLink    | (`ConcreteProduct`)`具体`的な部品：HTML のリンクを表すクラス         |
+| listfactory  | ListTray    | (`ConcreteProduct`)`具体`的な部品：ListLink, ListTray を集めたクラス |
+| listfactory  | ListPage    | (`ConcreteProduct`)`具体`的な部品：HTML のページを表すクラス         |
+|              |             |                                                                      |
+| divfactory   | DivFactory  | (`ConcreteFactory`)DivLink, DivTray, DivPage を作る`具体`クラス      |
+| divfactory   | DivLink     | (`ConcreteProduct`)`具体`的な部品：HTML のリンクを表すクラス         |
+| divfactory   | DivTray     | (`ConcreteProduct`)`具体`的な部品：DivLink, DivTray を集めたクラス   |
+| divfactory   | DivPage     | (`ConcreteProduct`)`具体`的な部品：HTML のページを表すクラス         |
 
 ## Usage/Tips/Pros and Cons
 
