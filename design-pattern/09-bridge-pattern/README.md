@@ -25,32 +25,47 @@
 
 ### Java
 
-|     |     |     |
-| --- | --- | --- |
-|     |     |     |
-|     |     |     |
+- 「何かを表示する」プログラム
 
--
+| Bridge side        | Class name        | Description                                  |
+| ------------------ | ----------------- | -------------------------------------------- |
+| `機能のクラス階層` | Display           | 「表示する」クラス                           |
+| `機能のクラス階層` | CountDisplay      | 「指定回数だけ表示する」機能を追加したクラス |
+| `実装のクラス階層` | DisplayImpl       | 「表示する」クラス                           |
+| `実装のクラス階層` | StringDisplayImpl | 「文字列を使って表示する」クラス             |
+|                    | Main              | ...                                          |
 
-### xxx
+### Dart
 
--
+※機能と実装を階層分けできてはない。異なるクラスを橋渡しする例として記載した。
 
-## Usage/Tips
+- `dart-sample/`
+  - `abstraction.dart`
+    - Shape, Color のインタフェースを定義
+  - `bridge.dart`
+    - Shape と Color を橋渡しするクラスの実装
+  - `implementor.dart`
+    - Shape, Color を実装
+  - `main.dart`
+    - 橋渡しクラスの使用
 
-- 分けておけば拡張が容易になる
+## Usage/Tips/Pros and Cons
+
+- `機能`と`実装`をクラスレベルで階層分けしておくことで、拡張が容易になる
+  - それぞれのクラス階層を独立に拡張できる
+  - `機能`を追加したければ、`機能`のクラス階層に追加する
+    - このとき、`実装`クラス階層は修正が不要であり、かつ追加した`機能`は**「すべての`実装`」**で利用できる
 - 継承は固い結びつき、委譲はゆるやかな結びつき
-
-## Pros and Cons
-
-- Pros
-- Cons
+  - 継承はクラスの拡張に便利だが、クラス間を強く結合させる
+    - ソースコードを書き換えない限り、この関係に変化を加えられない
+  - 委譲を使うと、引数で注入されたものと結びつく緩やかな結びつきとなる
+    - ex. Main クラスの中で Display/CountDisplay のインスタンスに StringDisplayImpl のインスタンスを注入している。これを別の XXXDisplayImpl として注入すれば即座に変化を加えることができ、加えて変更するのは Main だけですむ。
 
 ## Related Patterns
 
 - [Template Method Pattern](../03-template-method-pattern/)
-- wip
+  - `実装のクラス階層`を使うパターン
 - [Abstract Factory Pattern](../08-abstract-factory-pattern/)
-- wip
+  - Bridge Pattern の`ConcreteImplementor`を環境に合わせて適切に構築するために用いられる場合がある
 - [Adapter Pattern](../02-adapter-pattern/)
-- wip
+  - 機能は似ているがインタフェースは異なるクラス同士を結びつけるパターン
