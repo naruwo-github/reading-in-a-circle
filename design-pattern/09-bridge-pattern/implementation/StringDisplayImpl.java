@@ -1,3 +1,5 @@
+package implementation;
+
 public class StringDisplayImpl extends DisplayImpl {
     private String string;
     private int width;

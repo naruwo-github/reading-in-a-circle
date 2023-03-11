@@ -1,3 +1,5 @@
+import implementation.DisplayImpl;
+
 public class Display {
     private DisplayImpl impl;
 

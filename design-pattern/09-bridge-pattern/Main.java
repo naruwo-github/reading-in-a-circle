@@ -1,3 +1,5 @@
+import implementation.StringDisplayImpl;
+
 public class Main {
     public static void main(String[] args) {
         Display display1 = new Display(new StringDisplayImpl("Hello, Japan."));

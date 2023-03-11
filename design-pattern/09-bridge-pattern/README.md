@@ -21,9 +21,7 @@
 |                       | `Abstraction`のインタフェースを実装するためのメソッドを規定する   |
 | `ConcreteImplementor` | `Implementor`のインタフェースを実装する                           |
 
-## Sample Code
-
-### Java
+## Sample Code(Java)
 
 - 「何かを表示する」プログラム
 
@@ -34,20 +32,6 @@
 | `実装のクラス階層` | DisplayImpl       | 「表示する」クラス                           |
 | `実装のクラス階層` | StringDisplayImpl | 「文字列を使って表示する」クラス             |
 |                    | Main              | ...                                          |
-
-### Dart
-
-※機能と実装を階層分けできてはない。異なるクラスを橋渡しする例として記載した。
-
-- `dart-sample/`
-  - `abstraction.dart`
-    - Shape, Color のインタフェースを定義
-  - `bridge.dart`
-    - Shape と Color を橋渡しするクラスの実装
-  - `implementor.dart`
-    - Shape, Color を実装
-  - `main.dart`
-    - 橋渡しクラスの使用
 
 ## Usage/Tips/Pros and Cons
 

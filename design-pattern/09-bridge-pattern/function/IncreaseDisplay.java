@@ -1,3 +1,5 @@
+import implementation.DisplayImpl;
+
 public class IncreaseDisplay extends CountDisplay {
     private int step;
 
