@@ -7,7 +7,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.ArrayList;
 
-public abstract class Page {
+public abstract class Page implements HTMLable {
     // HTMLページ全体を表す抽象クラス
 
     protected String title;
@@ -27,7 +27,7 @@ public abstract class Page {
         try {
             Files.writeString(
                     Path.of(filename),
-                    makeHTML(),
+                    this.makeHTML(),
                     StandardOpenOption.CREATE,
                     StandardOpenOption.TRUNCATE_EXISTING,
                     StandardOpenOption.WRITE);
@@ -36,6 +36,4 @@ public abstract class Page {
             e.printStackTrace();
         }
     }
-
-    public abstract String makeHTML();
 }
