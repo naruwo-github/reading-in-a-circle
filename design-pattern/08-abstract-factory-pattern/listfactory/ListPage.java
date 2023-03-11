@@ -1,4 +1,4 @@
-package listfactory;
+package listFactory;
 
 import factory.Page;
 import factory.Item;
@@ -10,18 +10,18 @@ public class ListPage extends Page {
 
     @Override
     public String makeHTML() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<html><head><title>" + this.title + "</title></head>\n<body>\n");
-        sb.append("<h1>" + this.title + "</h1>\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<html><head><title>" + this.title + "</title></head>\n<body>\n");
+        stringBuilder.append("<h1>" + this.title + "</h1>\n");
 
-        sb.append("<ul>\n");
-        for (Item item : this.content) {
-            sb.append(item.makeHTML());
+        stringBuilder.append("<ul>\n");
+        for (Item item : this.itemList) {
+            stringBuilder.append(item.makeHTML());
         }
-        sb.append("</ul>\n");
+        stringBuilder.append("</ul>\n");
 
-        sb.append("<hr><address>" + this.author + "</address>\n");
-        sb.append("</body></html>\n");
-        return sb.toString();
+        stringBuilder.append("<hr><address>" + this.author + "</address>\n");
+        stringBuilder.append("</body></html>\n");
+        return stringBuilder.toString();
     }
 }

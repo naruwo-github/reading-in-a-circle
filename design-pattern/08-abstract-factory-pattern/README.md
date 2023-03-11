@@ -20,8 +20,8 @@
 - 4 つのパッケージで構成される
   - factory：抽象的な工場・部品・製品
   - 無名パッケージ：Main
-  - listfactory：具体的な工場・部品・製品
-  - divfactory：同上
+  - listFactory：具体的な工場・部品・製品
+  - divFactory：同上
 
 | Package name | Class name  | Description                                                          |
 | ------------ | ----------- | -------------------------------------------------------------------- |
@@ -33,15 +33,15 @@
 |              |             |                                                                      |
 | no title     | Main        | (`Client`)                                                           |
 |              |             |                                                                      |
-| listfactory  | ListFactory | (`ConcreteFactory`)ListLink, ListTray, ListPage を作る`具体`クラス   |
-| listfactory  | ListLink    | (`ConcreteProduct`)`具体`的な部品：HTML のリンクを表すクラス         |
-| listfactory  | ListTray    | (`ConcreteProduct`)`具体`的な部品：ListLink, ListTray を集めたクラス |
-| listfactory  | ListPage    | (`ConcreteProduct`)`具体`的な部品：HTML のページを表すクラス         |
+| listFactory  | ListFactory | (`ConcreteFactory`)ListLink, ListTray, ListPage を作る`具体`クラス   |
+| listFactory  | ListLink    | (`ConcreteProduct`)`具体`的な部品：HTML のリンクを表すクラス         |
+| listFactory  | ListTray    | (`ConcreteProduct`)`具体`的な部品：ListLink, ListTray を集めたクラス |
+| listFactory  | ListPage    | (`ConcreteProduct`)`具体`的な部品：HTML のページを表すクラス         |
 |              |             |                                                                      |
-| divfactory   | DivFactory  | (`ConcreteFactory`)DivLink, DivTray, DivPage を作る`具体`クラス      |
-| divfactory   | DivLink     | (`ConcreteProduct`)`具体`的な部品：HTML のリンクを表すクラス         |
-| divfactory   | DivTray     | (`ConcreteProduct`)`具体`的な部品：DivLink, DivTray を集めたクラス   |
-| divfactory   | DivPage     | (`ConcreteProduct`)`具体`的な部品：HTML のページを表すクラス         |
+| divFactory   | DivFactory  | (`ConcreteFactory`)DivLink, DivTray, DivPage を作る`具体`クラス      |
+| divFactory   | DivLink     | (`ConcreteProduct`)`具体`的な部品：HTML のリンクを表すクラス         |
+| divFactory   | DivTray     | (`ConcreteProduct`)`具体`的な部品：DivLink, DivTray を集めたクラス   |
+| divFactory   | DivPage     | (`ConcreteProduct`)`具体`的な部品：HTML のページを表すクラス         |
 
 ## Usage/Tips/Pros and Cons
 

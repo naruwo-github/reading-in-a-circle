@@ -1,4 +1,4 @@
-package divfactory;
+package divFactory;
 
 import factory.Factory;
 import factory.Link;

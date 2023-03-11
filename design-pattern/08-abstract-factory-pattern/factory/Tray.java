@@ -11,7 +11,7 @@ public abstract class Tray extends Item {
     }
 
     public void add(Item item) {
-        tray.add(item);
+        this.tray.add(item);
     }
 
     public List<Item> getTray() {

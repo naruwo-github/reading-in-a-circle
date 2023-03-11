@@ -12,9 +12,9 @@ public class Main {
         }
 
         String filename = args[0];
-        String classname = args[1];
+        String className = args[1];
 
-        Factory factory = Factory.getFactory(classname);
+        Factory factory = Factory.getFactory(className);
 
         // Blog
         Link blog1 = factory.createLink("Blog 1", "https://example.com/blog1");

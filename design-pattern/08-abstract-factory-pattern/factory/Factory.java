@@ -1,15 +1,15 @@
 package factory;
 
 public abstract class Factory {
-    public static Factory getFactory(String classname) {
+    public static Factory getFactory(String className) {
         Factory factory = null;
         try {
             // class, constructorといったプログラムの構成要素を
             // コンパイラではなくクラス自身が扱っている
             // -> 一般的に reflection という
-            factory = (Factory) Class.forName(classname).getDeclaredConstructor().newInstance();
+            factory = (Factory) Class.forName(className).getDeclaredConstructor().newInstance();
         } catch (ClassNotFoundException e) {
-            System.out.println("Class " + classname + " is not found.");
+            System.out.println("Class " + className + " is not found.");
         } catch (Exception e) {
             e.printStackTrace();
         }

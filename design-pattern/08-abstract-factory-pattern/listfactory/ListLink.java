@@ -1,4 +1,4 @@
-package listfactory;
+package listFactory;
 
 import factory.Link;
 

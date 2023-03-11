@@ -1,4 +1,4 @@
-package listfactory;
+package listFactory;
 
 import factory.Tray;
 import factory.Item;
@@ -10,17 +10,17 @@ public class ListTray extends Tray {
 
     @Override
     public String makeHTML() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<li>\n");
-        sb.append(this.caption + "\n");
-        sb.append("<ul>\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<li>\n");
+        stringBuilder.append(this.caption + "\n");
+        stringBuilder.append("<ul>\n");
         for (Item item : this.getTray()) {
             // ListLink, ListTrayはどちらもItemクラスのサブクラス
             // なので中身を気にせずmakeHTMLを呼び出せる
-            sb.append(item.makeHTML());
+            stringBuilder.append(item.makeHTML());
         }
-        sb.append("</ul>\n");
-        sb.append("</li>\n");
-        return sb.toString();
+        stringBuilder.append("</ul>\n");
+        stringBuilder.append("</li>\n");
+        return stringBuilder.toString();
     }
 }

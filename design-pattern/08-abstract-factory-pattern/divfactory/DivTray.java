@@ -1,4 +1,4 @@
-package divfactory;
+package divFactory;
 
 import factory.Item;
 import factory.Tray;
@@ -10,15 +10,15 @@ public class DivTray extends Tray {
 
     @Override
     public String makeHTML() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<p><b>" + this.caption + "</b></p>\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<p><b>" + this.caption + "</b></p>\n");
 
-        sb.append("<div class=\"TRAY\">");
+        stringBuilder.append("<div class=\"TRAY\">");
         for (Item item : this.getTray()) {
-            sb.append(item.makeHTML());
+            stringBuilder.append(item.makeHTML());
         }
-        sb.append("</div>\n");
+        stringBuilder.append("</div>\n");
 
-        return sb.toString();
+        return stringBuilder.toString();
     }
 }

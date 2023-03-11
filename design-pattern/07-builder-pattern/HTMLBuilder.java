@@ -41,8 +41,8 @@ public class HTMLBuilder extends Builder {
             Writer fileWriter = new FileWriter(this.filename);
             fileWriter.write(stringBuilder.toString());
             fileWriter.close();
-        } catch (Exception error) {
-            error.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

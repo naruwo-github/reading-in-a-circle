@@ -12,7 +12,7 @@ public abstract class Page implements HTMLable {
 
     protected String title;
     protected String author;
-    protected List<Item> content = new ArrayList<>();
+    protected List<Item> itemList = new ArrayList<>();
 
     public Page(String title, String author) {
         this.title = title;
@@ -20,7 +20,7 @@ public abstract class Page implements HTMLable {
     }
 
     public void add(Item item) {
-        this.content.add(item);
+        this.itemList.add(item);
     }
 
     public void output(String filename) {
