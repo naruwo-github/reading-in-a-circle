@@ -1,4 +1,4 @@
-# xxx Pattern
+# Visitor Pattern
 
 -
 
@@ -27,10 +27,8 @@
 
 ## Pros and Cons
 
-- Pros
-  -
-- Cons
-  -
+- ## Pros
+- ## Cons
 
 ## Related Patterns
 
