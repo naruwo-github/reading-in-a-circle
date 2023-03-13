@@ -22,10 +22,10 @@
 
 | class name  | description                                              |
 | ----------- | -------------------------------------------------------- |
-| Builder     | 文書を構成するためのメソッドを定める(`Builder`クラス)    |
-| Director    | 一つの文書を作るアルゴリズムを定める(`Director`クラス)   |
-| TextBuilder | テキストを使って文書を作る(`ConcreteBuilder`クラス)      |
-| HTMLBuilder | HTML ファイルを使って文書を作る(`ConcreteBuilder`クラス) |
+| Builder     | 文書を構成するためのメソッドを定める(`Builder`)          |
+| Director    | 一つの文書を作るアルゴリズムを定める(`Director`)         |
+| TextBuilder | テキストを使って文書を作る(`ConcreteBuilder`)            |
+| HTMLBuilder | HTML ファイルを使って文書を作る(`ConcreteBuilder`)       |
 | Main        | (`Client`)                                               |
 
 ## Usage/Tips
@@ -53,11 +53,12 @@
 ## Related Patterns
 
 - [Template Method Pattern](../03-template-method-pattern/)
-  - スーパークラスがサブクラスをコントロールするが、BuilderPattern では Director が Builder をコントロールする
+  - Template Method Patternではスーパークラスがサブクラスをコントロールするが、BuilderPattern では Director が Builder をコントロールする
 - [Composite Pattern](../11-composite-pattern/)
   - BuilderPattern によって作られる生成物は、Composite Pattern になる場合がある
-- [Abstract Factory Pattern](../08-abstract-factory-pattern/)(->類似している)
-  - 両パターンとも複雑なインスタンスを生成するためのパターン
-- Facade Pattern(->類似している)
-  - Facade は内部モジュールを組み合わせて、作業を行うための単純なインタフェースを外部に提供する
-  - Builder Pattern の Director は、Builder の複雑なメソッドを組み合わせて、インスタンを構築する単純なインタフェースを外部に提供する
+- [Abstract Factory Pattern](../08-abstract-factory-pattern/)
+  - 両パターンとも複雑なインスタンスを生成するためのパターンで、類似している
+- [Facade Pattern](../15-facade-pattern/)
+  - 単純なインタフェースを外部に提供する点で類似している
+    - Facade は内部モジュールを組み合わせて、作業を行うための単純なインタフェースを外部に提供する
+    - Builder Pattern の Director は、Builder の複雑なメソッドを組み合わせて、インスタンを構築する単純なインタフェースを外部に提供する
