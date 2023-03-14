@@ -44,17 +44,20 @@
 ## Usage/Tips/Pros and Cons
 
 - wip
+  - wip
 - Pros
+  - wip
 - Cons
+  - wip
 
 ## Related Patterns
 
 - [Adapter Pattern](../02-adapter-pattern/)
-- Adapter はズレのある二つのインタフェースをつなぐ
-- Decorator は中身のインタフェースを変えずに外枠を作る（透過的）
+  - Adapter はズレのある二つのインタフェースをつなぐ
+  - Decorator は中身のインタフェースを変えずに外枠を作る（透過的）
 - [Strategy Pattern](../10-strategy-pattern/)
-- Strategy はアルゴリズムを切り替えて機能実現する
-- Decorator は外枠を取り替えたり、外枠を重ねたりして機能を追加する
+  - Strategy はアルゴリズムを切り替えて機能実現する
+  - Decorator は外枠を取り替えたり、外枠を重ねたりして機能を追加する
 - [Composite Pattern](../11-composite-pattern/)
-- Composite は機能を追加するところでなく、容器と中身を同一視するところに主眼がある
-- Decorator は機能を柔軟に追加するために再帰的な構造を利用する
+  - Composite は機能を追加するところでなく、容器と中身を同一視するところに主眼がある
+  - Decorator は機能を柔軟に追加するために再帰的な構造を利用する
