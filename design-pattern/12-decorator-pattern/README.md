@@ -28,27 +28,35 @@
 +-----+
 ```
 
-| Class name    | Description |
-| ------------- | ----------- |
-| Display       |             |
-| StringDisplay |             |
-| Border        |             |
-| SideBorder    |             |
-| FullBorder    |             |
-| Main          |             |
+| Class name    | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
+| Display       | (`Component`)文字列表示用の抽象クラス                         |
+| StringDisplay | (`ConcreteComponent`)一行だけからなる文字列表示用の具体クラス |
+| Border        | (`Decorator`)飾り枠を表す抽象クラス                           |
+| SideBorder    | (`ConcreteDecorator`)左右にのみ飾りつける                     |
+| FullBorder    | (`ConcreteDecorator`) 上下左右に飾りつける                    |
+| Main          | ...                                                           |
 
 ### Python
 
 - 文字列を飾る〜
 
-## Usage/Tips/Pros and Cons
+## Usage/Tips
 
-- wip
+- 透過的なインタフェース
+  - 透過的：意識しなくても使える
   - wip
-- Pros
+- 中身を変えずに機能追加ができる
   - wip
-- Cons
+- 動的な機能追加ができる
   - wip
+- 単純な品揃えでも、多様な機能追加ができる
+  - wip
+- 継承と委譲における同一視
+  - 継承：サブクラスとスーパークラスとを同一視
+    - wip
+  - 委譲：自分と委譲先とを同一視
+    - wip
 
 ## Related Patterns
 

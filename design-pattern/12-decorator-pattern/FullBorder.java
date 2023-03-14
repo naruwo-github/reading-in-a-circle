@@ -20,7 +20,7 @@ public class FullBorder extends Border {
         if (row == 0) {
             // 上端の枠
             return "+" + makeLine('-', this.display.getColumns()) + "+";
-        } else if (row == display.getRows() + 1) {
+        } else if (row == this.display.getRows() + 1) {
             // 下端の枠
             return "+" + makeLine('-', this.display.getColumns()) + "+";
         } else {
