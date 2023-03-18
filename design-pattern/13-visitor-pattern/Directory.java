@@ -22,11 +22,9 @@ public class Directory extends Entry implements Iterable<Entry> {
 
     @Override
     public int getSize() {
-        int size = 0;
-        for (Entry entry : this.directory) {
-            size += entry.getSize();
-        }
-        return size;
+        SizeVisitor sv = new SizeVisitor();
+        this.accept(sv);
+        return sv.getSize();
     }
 
     public Entry add(Entry entry) {
