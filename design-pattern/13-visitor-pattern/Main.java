@@ -28,5 +28,11 @@ public class Main {
         tomura.add(new File("junk.mail", 500));
         rootDir.accept(new ListVisitor());
 
+        FileFindVisitor ffv = new FileFindVisitor(".html");
+        rootDir.accept(ffv);
+        System.out.println("HTML files are:");
+        for (File file : ffv.getFoundFiles()) {
+            System.out.println(file);
+        }
     }
 }
