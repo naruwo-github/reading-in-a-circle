@@ -1,4 +1,4 @@
-# xxx Pattern
+# Observer Pattern
 
 -
 
@@ -15,23 +15,31 @@
 
 ### Java
 
+|     |     |     |
+| --- | --- | --- |
+|     |     |     |
+|     |     |     |
+
 -
 
 ### xxx
 
 -
 
-## Usage/Tips
+## Usage/Tips/Pros and Cons
 
--
-
-## Pros and Cons
-
+- wip
+  - wip
 - Pros
-  -
+  - wip
 - Cons
-  -
+  - wip
 
 ## Related Patterns
 
--
+- [x Pattern]()
+  - wip
+- [x Pattern]()
+  - wip
+- [x Pattern]()
+  - wip
