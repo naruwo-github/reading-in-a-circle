@@ -1,11 +1,11 @@
 class TextComponent:
-    # テキスト出力の基本インターフェース
+    # テキスト出力のインターフェース
     def getText(self):
         pass
 
 
 class TextLabel(TextComponent):
-    # テキスト出力の具体的な実装
+    # テキスト出力の基本実装
     def __init__(self, text):
         self._text = text
 
@@ -14,7 +14,7 @@ class TextLabel(TextComponent):
 
 
 class TextDecorator(TextComponent):
-    # テキスト出力を装飾するデコレーターの基本インターフェース
+    # テキスト出力を装飾するデコレーターのインターフェース
     def __init__(self, textComponent):
         self._textComponent = textComponent
 
@@ -23,7 +23,6 @@ class TextDecorator(TextComponent):
 
 
 class BoldDecorator(TextDecorator):
-    # テキストを太字にするデコレーター
     def __init__(self, textComponent):
         super().__init__(textComponent)
 
@@ -33,7 +32,6 @@ class BoldDecorator(TextDecorator):
 
 
 class UnderlineDecorator(TextDecorator):
-    # テキストを下線付きにするデコレーター
     def __init__(self, textComponent):
         super().__init__(textComponent)
 
@@ -45,19 +43,15 @@ class UnderlineDecorator(TextDecorator):
 def main():
     text = "Hello, World!"
 
-    # ベースのテキスト出力を作成
-    label = TextLabel(text)
+    baseLabel = TextLabel(text)
 
-    # テキストを太字にする
-    boldLabel = BoldDecorator(label)
+    boldLabel = BoldDecorator(baseLabel)
     print(boldLabel.getText())  # <b>Hello, World!</b>
 
-    # テキストを下線付きにする
-    underlineLabel = UnderlineDecorator(label)
+    underlineLabel = UnderlineDecorator(baseLabel)
     print(underlineLabel.getText())  # <u>Hello, World!</u>
 
-    # テキストを太字かつ下線付きにする
-    boldUnderlineLabel = BoldDecorator(UnderlineDecorator(label))
+    boldUnderlineLabel = BoldDecorator(UnderlineDecorator(baseLabel))
     print(boldUnderlineLabel.getText())  # <b><u>Hello, World!</u></b>
 
 
