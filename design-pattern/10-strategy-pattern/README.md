@@ -46,6 +46,9 @@ Strategy <|.. ConcreteStrategy3
 
 ### Java
 
+<details>
+<summary>じゃんけんをするプログラム</summary>
+
 じゃんけんをするプログラムで、その`戦略`を切り替える部分に Strategy Pattern を使う
 
 - 戦略 ①：勝ったら次も同じ手を出す
@@ -65,9 +68,14 @@ Strategy <|.. ConcreteStrategy3
 | Main            | Taro と Hana に 10000 回じゃんけんさせる                 |
 |                 | Taro が WinningStrategy、Hana が ProbStrategy を使用する |
 
+</details>
+
 ### Dart
 
-「配列のソート」を目的とし、使用するソートアルゴリズムを Strategy Pattern で実装する例
+<details>
+<summary>「配列のソート」を行うプログラム</summary>
+
+使用するソートアルゴリズムを Strategy Pattern で実装する例
 
 ```mermaid
 classDiagram
@@ -106,6 +114,8 @@ SortStrategy <|.. MergeSort
 SortStrategy <|.. BubbleSort
 SortStrategy <|.. XXXSort
 ```
+
+</details>
 
 ## Pros and Cons
 
