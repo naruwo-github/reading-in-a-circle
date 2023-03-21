@@ -9,8 +9,8 @@ public class NightState implements State {
     }
 
     @Override
-    public void doClock(Context context, int hour) {
-        if (9 <= hour && hour < 17) {
+    public void doClock(Context context, boolean isDay) {
+        if (isDay) {
             context.changeState(DayState.getInstance());
         }
     }

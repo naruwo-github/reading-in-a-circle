@@ -5,10 +5,8 @@ import java.awt.Frame;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class SafeFrame extends Frame implements ActionListener, Context {
+public class SafeFrame extends Frame implements Context {
     private TextField textClock = new TextField(60);
     private TextArea textScreen = new TextArea(10, 60);
     private Button buttonUse = new Button("金庫使用");
@@ -38,26 +36,10 @@ public class SafeFrame extends Frame implements ActionListener, Context {
         setVisible(true);
 
         // Event Listenerの設定
-        this.buttonUse.addActionListener(this);
-        this.buttonAlarm.addActionListener(this);
-        this.buttonPhone.addActionListener(this);
-        this.buttonExit.addActionListener(this);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        System.out.println(e.toString());
-        if (e.getSource() == this.buttonUse) {
-            this.state.doUse(this);
-        } else if (e.getSource() == this.buttonAlarm) {
-            this.state.doAlarm(this);
-        } else if (e.getSource() == this.buttonPhone) {
-            this.state.doPhone(this);
-        } else if (e.getSource() == this.buttonExit) {
-            System.exit(0);
-        } else {
-            System.out.println("?");
-        }
+        this.buttonUse.addActionListener(e -> this.state.doUse(this));
+        this.buttonAlarm.addActionListener(e -> this.state.doAlarm(this));
+        this.buttonPhone.addActionListener(e -> this.state.doPhone(this));
+        this.buttonExit.addActionListener(e -> System.exit(0));
     }
 
     @Override
@@ -65,7 +47,14 @@ public class SafeFrame extends Frame implements ActionListener, Context {
         String clockString = String.format("現在時刻は%02d:00", hour);
         System.out.println(clockString);
         this.textClock.setText(clockString);
-        this.state.doClock(this, hour);
+        this.state.doClock(this, this.isDay(hour));
+    }
+
+    private boolean isDay(int hour) {
+        if (9 <= hour && hour < 17) {
+            return true;
+        }
+        return false;
     }
 
     @Override

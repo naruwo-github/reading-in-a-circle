@@ -1,5 +1,5 @@
 public interface State {
-    public abstract void doClock(Context context, int hour);
+    public abstract void doClock(Context context, boolean isDay);
 
     public abstract void doUse(Context context);
 
