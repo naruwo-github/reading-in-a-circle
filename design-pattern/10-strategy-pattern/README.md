@@ -70,6 +70,44 @@ Strategy <|.. ConcreteStrategy3
 - 配列のソートを目的としたプログラム
   - ソートアルゴリズムを Strategy Pattern で実装する例
 
+```mermaid
+classDiagram
+
+class SortStrategy {
+  <<abstract>>
+  +List<int> sort()*
+}
+
+class Sorter {
+  -SortStrategy
+  +void setSortStrategy()
+  +List<int> sort()
+}
+note for Sorter "Clients use Sorter's public(+) methods\nsetSortStrategy() and sort().\n"
+
+class QuickSort {
+  +List<int> sort()
+}
+
+class MergeSort {
+  +List<int> sort()
+}
+
+class BubbleSort {
+  +List<int> sort()
+}
+
+class XXXSort {
+  +List<int> sort()
+}
+
+SortStrategy *.. Sorter
+SortStrategy <|.. QuickSort
+SortStrategy <|.. MergeSort
+SortStrategy <|.. BubbleSort
+SortStrategy <|.. XXXSort
+```
+
 ## Usage/Tips/Pros and Cons
 
 - アルゴリズムの切り替え（アルゴリズムの新規追加や変更）が容易
