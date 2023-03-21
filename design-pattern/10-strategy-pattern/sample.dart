@@ -1,6 +1,3 @@
-// ソートアルゴリズムを変更することができるため、柔軟性がある
-// また、ソートアルゴリズムを追加する場合は、SortStrategyインターフェースを実装するだけで、新しいアルゴリズムを実装できる
-
 abstract class SortStrategy {
   List<int> sort(List<int> dataset);
 }
@@ -24,18 +21,14 @@ class MergeSort implements SortStrategy {
 }
 
 /**
- * 下記のノリでConcreteStrategyを実装していく
-
 class XXXSort implements SortStrategy {
   @override
   List<int> sort(List<int> dataset) {
-    // XXXソートを実装する
     dataset.sort(XXX);
     return dataset;
   }
 }
-
- */
+*/
 
 class Sorter {
   SortStrategy _sortStrategy;
@@ -53,12 +46,9 @@ class Sorter {
 
 void main() {
   final dataset = [3, 5, 1, 2, 4];
-
-  final quickSort = QuickSort();
-  final sorter = Sorter(quickSort);
+  final sorter = Sorter(QuickSort());
   sorter.sort(dataset);
 
-  final mergeSort = MergeSort();
-  sorter.setSortStrategy(mergeSort);
+  sorter.setSortStrategy(MergeSort());
   sorter.sort(dataset);
 }
