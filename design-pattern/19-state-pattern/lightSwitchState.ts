@@ -1,7 +1,30 @@
 interface LightSwitchState {
-	on(): void;
-	off(): void;
+	on(sw: LightSwitch): void;
+	off(sw: LightSwitch): void;
 }
+
+class LightOnState implements LightSwitchState {
+	public on(sw: LightSwitch): void {
+		console.log("Light is already on.");
+	}
+
+	public off(sw: LightSwitch): void {
+		sw.setState(new LightOffState());
+		console.log("Turning light off.");
+	}
+}
+
+class LightOffState implements LightSwitchState {
+	public on(sw: LightSwitch): void {
+		sw.setState(new LightOnState());
+		console.log("Turning light on.");
+	}
+
+	public off(sw: LightSwitch): void {
+		console.log("Light is already off.");
+	}
+}
+
 class LightSwitch {
 	private state: LightSwitchState;
 
@@ -15,31 +38,11 @@ class LightSwitch {
 	}
 
 	public turnOn() {
-		this.state.on();
+		this.state.on(this);
 	}
 
 	public turnOff() {
-		this.state.off();
-	}
-}
-
-class LightOnState implements LightSwitchState {
-	public on(): void {
-		console.log("Light is already on.");
-	}
-
-	public off(): void {
-		console.log("Turning light off.");
-	}
-}
-
-class LightOffState implements LightSwitchState {
-	public on(): void {
-		console.log("Turning light on.");
-	}
-
-	public off(): void {
-		console.log("Light is already off.");
+		this.state.off(this);
 	}
 }
 
