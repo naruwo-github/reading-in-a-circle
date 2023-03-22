@@ -76,10 +76,8 @@ Invoker *-- Command
 
 ## Tips / Pros and Cons
 
-- Tips
-  - wip
-  - wip
-  - wip
+- 命令が持つべき情報は？と考える必要がある
+  - 今回は、ConcreteCommand が Receiver を`知っている`ことにより、ConcreteCommand を誰が管理していても`execute()`が実行できる
 - Pros
   - 分離とカプセル化: コマンドを表すオブジェクトと実際の処理を行うオブジェクトを分離し、カプセル化することができる
   - 拡張性: 新しいコマンドを追加する際に、既存のコードを変更せずに独立して実装することができる
