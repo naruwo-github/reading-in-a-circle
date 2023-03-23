@@ -12,7 +12,7 @@ class _Number implements Expression {
 }
 
 // NonTerminalExpressionクラス
-class Add implements Expression {
+class _Add implements Expression {
 	constructor(private left: Expression, private right: Expression) {}
 
 	interpret(): number {
@@ -20,7 +20,7 @@ class Add implements Expression {
 	}
 }
 
-class Subtract implements Expression {
+class _Subtract implements Expression {
 	constructor(private left: Expression, private right: Expression) {}
 
 	interpret(): number {
@@ -28,7 +28,7 @@ class Subtract implements Expression {
 	}
 }
 
-class Multiply implements Expression {
+class _Multiply implements Expression {
 	constructor(private left: Expression, private right: Expression) {}
 
 	interpret(): number {
@@ -36,7 +36,7 @@ class Multiply implements Expression {
 	}
 }
 
-class Divide implements Expression {
+class _Divide implements Expression {
 	constructor(private left: Expression, private right: Expression) {}
 
 	interpret(): number {
@@ -44,10 +44,9 @@ class Divide implements Expression {
 	}
 }
 
-// クライアント
-const expression: Expression = new Add(
+const expression: Expression = new _Add(
 	new _Number(3),
-	new Multiply(new _Number(2), new _Number(4))
+	new _Multiply(new _Number(2), new _Number(4))
 );
 
-console.log(`Result: ${expression.interpret()}`); // Result: 11
+console.log(`Result: ${expression.interpret()}`);
