@@ -2,6 +2,9 @@
 - 集合体の要素を、統一した方法で一つ一つ処理していくパターン
 - 何かがたくさん集まっているときに、それを順番に指し示し、全体をして処理を繰り返すもの
 
+下記ブログ記事にまとめた↓↓↓
+[【5分でわかる！】TypeScriptで学ぶDesign Pattern〜Iterator Pattern〜](https://chan-naru.hatenablog.com/entry/2023/04/12/072309)
+
 ## Sample Program
 - 本棚の中に本を入れ、その本の名前を順番に表示する
 
