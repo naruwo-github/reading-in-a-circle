@@ -151,5 +151,6 @@ _color: white
 
 ## Reference
 
-- [フルサイクルエンジニアになろう](https://qiita.com/m-chika/items/5e1d6291a53c3cda3371#%E3%83%95%E3%83%AB%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%95%E3%83%AB%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E9%96%8B%E7%99%BA%E8%80%85%E3%81%A8%E3%81%AF)
+- [Qiita - フルサイクルエンジニアになろう](https://qiita.com/m-chika/items/5e1d6291a53c3cda3371#%E3%83%95%E3%83%AB%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%95%E3%83%AB%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E9%96%8B%E7%99%BA%E8%80%85%E3%81%A8%E3%81%AF)
+- [DMM INSIDER - フルサイクルエンジニアリングを実践する開発組織のオンボーディング設計](https://inside.dmm.com/articles/onboarding-for-full-cycle-developers/)
 - 「実例」にリンクしたものたち
