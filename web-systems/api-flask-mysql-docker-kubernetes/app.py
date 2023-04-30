@@ -10,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{os.environ['DB_USERNA
 
 db = SQLAlchemy(app)
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
@@ -17,7 +18,9 @@ class User(db.Model):
     def __repr__(self):
         return f"<User {self.name}>"
 
+
 db.create_all()
+
 
 class UserResource(Resource):
     def get(self, user_id):
@@ -36,7 +39,8 @@ class UserResource(Resource):
         db.session.commit()
         return {"result": "success"}
 
+
 api.add_resource(UserResource, "/users/<int:user_id>")
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5001)
