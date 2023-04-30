@@ -1,0 +1,4 @@
+mysql/data
+mysql/log
+
+node/app/node_modules
