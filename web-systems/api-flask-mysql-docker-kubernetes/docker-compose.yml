@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   app:
-    container_name: flask
+    container_name: api
     build: .
     ports:
       - "5001:5001"
@@ -10,16 +10,16 @@ services:
       - db
     env_file:
       - .env
+    networks:
+      - backend
 
   db:
-    container_name: mysql
+    container_name: db
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
     volumes:
       - ./db/data:/var/lib/mysql
@@ -29,3 +29,8 @@ services:
       - "${DB_PORT}:${DB_PORT}"
     env_file:
       - .env
+    networks:
+      - backend
+
+networks:
+  backend:
