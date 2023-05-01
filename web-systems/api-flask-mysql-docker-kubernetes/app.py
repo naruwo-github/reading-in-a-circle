@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
-api = Api(app)
+api = Api(app, catch_all_404s=True)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{os.environ['DB_USERNAME']}:{os.environ['DB_PASSWORD']}@{os.environ['DB_HOST']}:{os.environ['DB_PORT']}/{os.environ['DB_NAME']}"
 
@@ -39,17 +39,19 @@ class UserResource(Resource):
         db.session.commit()
         return {"result": "success"}
 
+
+class UserCreateResource(Resource):
     def post(self):
-        name = request.form["name"]
+        data = request.get_json()
+        name = data["name"]
         new_user = User(name=name)
         db.session.add(new_user)
         db.session.commit()
         return {"id": new_user.id, "name": new_user.name}
 
 
-api.add_resource(UserResource, "/users/<int:user_id>")
 api.add_resource(UserResource, "/users/<int:user_id>", endpoint="user_by_id")
-api.add_resource(UserResource, "/users", endpoint="user_create")
+api.add_resource(UserCreateResource, "/users")
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5001)
