@@ -39,8 +39,17 @@ class UserResource(Resource):
         db.session.commit()
         return {"result": "success"}
 
+    def post(self):
+        name = request.form["name"]
+        new_user = User(name=name)
+        db.session.add(new_user)
+        db.session.commit()
+        return {"id": new_user.id, "name": new_user.name}
+
 
 api.add_resource(UserResource, "/users/<int:user_id>")
+api.add_resource(UserResource, "/users/<int:user_id>", endpoint="user_by_id")
+api.add_resource(UserResource, "/users", endpoint="user_create")
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5001)
