@@ -7,4 +7,4 @@ data:
   DB_PASSWORD: root
   DB_HOST: db
   DB_PORT: "3306"
-  DB_NAME: sandbox
+  MYSQL_DATABASE: sandbox
