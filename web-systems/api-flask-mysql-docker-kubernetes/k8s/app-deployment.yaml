@@ -15,6 +15,7 @@ spec:
       containers:
       - name: app
         image: api-flask-mysql-docker-kubernetes-app:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5001
         envFrom:
