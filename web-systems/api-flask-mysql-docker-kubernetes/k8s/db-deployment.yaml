@@ -26,3 +26,7 @@ spec:
               secretKeyRef:
                 key: password
                 name: db-root-pass
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
