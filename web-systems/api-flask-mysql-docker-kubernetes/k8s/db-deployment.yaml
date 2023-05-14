@@ -26,20 +26,3 @@ spec:
               secretKeyRef:
                 key: password
                 name: db-root-pass
-      #   volumeMounts:
-      #   - name: db-data
-      #     mountPath: /var/lib/mysql
-      #   - name: db-log
-      #     mountPath: /var/log/mysqld.log
-      #   - name: db-config
-      #     mountPath: /etc/mysql/conf.d/my.cnf
-      # volumes:
-      # - name: db-data
-      #   persistentVolumeClaim:
-      #     claimName: db-data-pvc
-      # - name: db-log
-      #   hostPath:
-      #     path: /var/log/mysqld.log
-      # - name: db-config
-      #   hostPath:
-      #     path: /etc/mysql/conf.d/my.cnf

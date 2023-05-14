@@ -5,11 +5,9 @@ import os
 
 app = Flask(__name__)
 api = Api(app)
-
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = f"mysql://{os.environ['DB_USERNAME']}:{os.environ['DB_PASSWORD']}@{os.environ['DB_HOST']}:{os.environ['DB_PORT']}/{os.environ['MYSQL_DATABASE']}"
-
 db = SQLAlchemy(app)
 
 
@@ -21,30 +19,26 @@ class User(db.Model):
         return f"<User {self.name}>"
 
 
-db.create_all()
-
-
 class UserResource(Resource):
-    def get(self, user_id):
-        user = User.query.get_or_404(user_id)
-        return {"id": user.id, "name": user.name}
+    def get(self, user_id=None):
+        if user_id:
+            user = User.query.get_or_404(user_id)
+            return {"id": user.id, "name": user.name}
+        else:
+            return "No user_id provided"
 
     def put(self, user_id):
-        user = User.query.get_or_404(user_id)
-        user.name = request.form["name"]
+        User.query.filter_by(id=user_id).update(dict(name=request.form["name"]))
         db.session.commit()
-        return {"id": user.id, "name": user.name}
+        return self.get(user_id)
 
     def delete(self, user_id):
-        user = User.query.get_or_404(user_id)
-        db.session.delete(user)
+        User.query.filter_by(id=user_id).delete()
         db.session.commit()
         return {"result": "success"}
 
     def post(self):
-        data = request.get_json()
-        name = data["name"]
-        new_user = User(name=name)
+        new_user = User(name=request.get_json()["name"])
         db.session.add(new_user)
         db.session.commit()
         return {"id": new_user.id, "name": new_user.name}
@@ -53,4 +47,5 @@ class UserResource(Resource):
 api.add_resource(UserResource, "/users", "/users/<int:user_id>")
 
 if __name__ == "__main__":
+    db.create_all()
     app.run(debug=True, host="0.0.0.0", port=5001)
