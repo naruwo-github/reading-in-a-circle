@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-server-python311
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-server-python311
+  template:
+    metadata:
+      labels:
+        app: http-server-python311
+    spec:
+      containers:
+      - name: http-server-python311-container
+        image: http-server-python-kubernetes:3.8
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 250m
+            memory: 128Mi
+        ports:
+        - containerPort: 8000

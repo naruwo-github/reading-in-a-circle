@@ -23,8 +23,8 @@ eval $(minikube docker-env)
    First, build your Docker image locally with the Dockerfile provided. Replace `<your-image-name>` with the name of your Docker image.
 
    ```bash
-   docker build -t <your-image-name>:<tag-name> .
-   # Default image name is `http-service-python-kubernetes`, and Default tag name is `3.8`.
+   docker build -t <your-image-name>:<tag-name> -f ./<docker-file-name> .
+   # Default image name is `http-service-python-kubernetes`, default tag name is `3.8` and default file name is `Dockerfile-python38`.
    ```
 
    Ensure that your Docker image is listed with the following command:
@@ -59,7 +59,6 @@ eval $(minikube docker-env)
 
    ```bash
    minikube service <your-service-name> --url
-   # Default service name is `http-server-service`.
    ```
 
    Open this URL in a web browser to view your application.
