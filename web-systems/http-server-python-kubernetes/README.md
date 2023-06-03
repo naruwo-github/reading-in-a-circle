@@ -75,19 +75,12 @@ eval $(minikube docker-env)
 
 5. **Access the application**
 
-   Once your Ingress is running, find out the Minikube cluster IP address with:
-
    ```bash
-   minikube ip
+   minikube tunnel
    ```
 
-   Use this IP address to access your application through the Ingress. Remember to use the host you specified in the Ingress configuration. If you are using `curl`, you can set the host with the `-H` option:
-
-   ```bash
-   curl -H "Host: k8s-practice-domain.com" http://<minikube-ip>
-   ```
-
-   Replace `k8s-practice-domain.com` with the host you specified in the Ingress configuration.
+   - python3.8 container: http://k8s-practice-domain.com/v38
+   - python3.11 container: http://k8s-practice-domain.com/v311
 
 ## Helpful commands
 
