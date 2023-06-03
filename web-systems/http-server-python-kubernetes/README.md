@@ -8,6 +8,14 @@ Ensure you have the following installed on your local machine:
 - Minikube: To run your Kubernetes cluster locally.
 - kubectl: To interact with your Kubernetes cluster.
 
+Activate Minikube:
+
+```bash
+minikube start
+minikube dashboard # If needed
+eval $(minikube docker-env)
+```
+
 ## Steps
 
 1. **Build Docker image**
@@ -15,7 +23,6 @@ Ensure you have the following installed on your local machine:
    First, build your Docker image locally with the Dockerfile provided. Replace `<your-image-name>` with the name of your Docker image.
 
    ```bash
-   eval $(minikube docker-env)
    docker build -t <your-image-name>:<tag-name> .
    # Default image name is `http-service-python-kubernetes`, and Default tag name is `3.8`.
    ```
