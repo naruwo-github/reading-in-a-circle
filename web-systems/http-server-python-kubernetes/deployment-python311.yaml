@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: http-server-python311-container
-        image: http-server-python-kubernetes:3.8
+        image: http-server-python-kubernetes:3.11
         imagePullPolicy: IfNotPresent
         resources:
           limits:

@@ -18,6 +18,16 @@ eval $(minikube docker-env)
 
 ## Steps
 
+0. **TL;DR**
+
+   ```bash
+   kubectl apply -f deployment-python38.yaml
+   kubectl apply -f service-python38.yaml
+   kubectl apply -f deployment-python311.yaml
+   kubectl apply -f service-python311.yaml
+   kubectl apply -f ingress.yaml
+   ```
+
 1. **Build Docker image**
 
    First, build your Docker image locally with the Dockerfile provided. Replace `<your-image-name>` with the name of your Docker image.
