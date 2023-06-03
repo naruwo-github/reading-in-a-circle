@@ -13,7 +13,6 @@ Activate Minikube:
 ```bash
 minikube start
 minikube dashboard # If needed
-eval $(minikube docker-env)
 ```
 
 ## Steps
@@ -21,11 +20,17 @@ eval $(minikube docker-env)
 0. **TL;DR**
 
    ```bash
+   eval $(minikube docker-env)
+   docker build -t http-service-python-kubernetes:3.8 -f ./Dockerfile-python38 .
+   docker build -t http-service-python-kubernetes:3.11 -f ./Dockerfile-python311 .
+
    kubectl apply -f deployment-python38.yaml
    kubectl apply -f service-python38.yaml
    kubectl apply -f deployment-python311.yaml
    kubectl apply -f service-python311.yaml
    kubectl apply -f ingress.yaml
+
+   minikube tunnel
    ```
 
 1. **Build Docker image**
