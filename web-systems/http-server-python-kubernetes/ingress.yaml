@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: http-server-ingress
+spec:
+  rules:
+  - host: k8s-practice-domain.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/v38"
+        backend:
+          service:
+            name: http-server-python38-service
+            port:
+              number: 8000
+      - pathType: Prefix
+        path: "/v311"
+        backend:
+          service:
+            name: http-server-python311-service
+            port:
+              number: 8000

@@ -53,15 +53,31 @@ eval $(minikube docker-env)
    kubectl apply -f service.yaml
    ```
 
-4. **Access the application**
+4. **Create and apply Kubernetes Ingress**
 
-   Once your Service is running, get the URL of your application with:
+   Make sure that the labels in the `ingress.yaml` file match those in your Service.
+
+   Then apply the Ingress with:
 
    ```bash
-   minikube service <your-service-name> --url
+   kubectl apply -f ingress.yaml
    ```
 
-   Open this URL in a web browser to view your application.
+5. **Access the application**
+
+   Once your Ingress is running, find out the Minikube cluster IP address with:
+
+   ```bash
+   minikube ip
+   ```
+
+   Use this IP address to access your application through the Ingress. Remember to use the host you specified in the Ingress configuration. If you are using `curl`, you can set the host with the `-H` option:
+
+   ```bash
+   curl -H "Host: k8s-practice-domain.com" http://<minikube-ip>
+   ```
+
+   Replace `k8s-practice-domain.com` with the host you specified in the Ingress configuration.
 
 ## Helpful commands
 
