@@ -6,5 +6,7 @@ services:
     ports:
       - '5001:5001'
     volumes:
-      - .:/app
+      - ./.vscode:/app/.vscode
+      - ./app.py:/app/app.py
+      - ./wsgi.py:/app/wsgi.py
     command: gunicorn -b 0.0.0.0:5001 wsgi:application --reload
