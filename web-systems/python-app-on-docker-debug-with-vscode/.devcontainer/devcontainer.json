@@ -1,27 +1,14 @@
 {
-	"name": "Python 3.8",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": ".."
-	},
-	"runArgs": ["-p", "5001:5001"],
-	"postCreateCommand": "pip install -r requirements.txt",
-	"forwardPorts": [5001],
-	"overrideCommand": false,
-	"customizations": {
-		"vscode": {
-			"settings": {
-				"python.pythonPath": "/usr/local/bin/python",
-				"python.linting.pylintEnabled": false,
-				"python.linting.enabled": true,
-				"terminal.integrated.profiles.linux": {
-					"bash": {
-						"path": "/bin/bash"
-					}
-				},
-				"terminal.integrated.defaultProfile.linux": "bash"
-			},
-			"extensions": ["ms-python.python"]
-		}
-	}
+  "name": "Python 3.8 App",
+  "dockerComposeFile": ["../docker-compose.yaml"],
+  "service": "wsgi",
+  "workspaceFolder": "/app",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "python.pythonPath": "/usr/local/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true
+  },
+  "extensions": ["ms-python.python", "ms-azuretools.vscode-docker"],
+  "forwardPorts": [5001]
 }
