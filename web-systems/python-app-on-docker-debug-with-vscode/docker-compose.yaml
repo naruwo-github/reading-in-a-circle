@@ -7,6 +7,5 @@ services:
       - '5001:5001'
     volumes:
       - ./.vscode:/app/.vscode
-      - ./app.py:/app/app.py
-      - ./wsgi.py:/app/wsgi.py
-    command: gunicorn -b 0.0.0.0:5001 wsgi:application --reload
+      - ./app:/app/app
+    command: gunicorn -b 0.0.0.0:5001 app.wsgi:application --reload
